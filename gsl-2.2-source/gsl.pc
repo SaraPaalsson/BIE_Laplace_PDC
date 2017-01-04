@@ -1,0 +1,11 @@
+prefix=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl
+exec_prefix=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl
+libdir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/lib
+includedir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include
+GSL_CBLAS_LIB=-lgslcblas
+
+Name: GSL
+Description: GNU Scientific Library
+Version: 2.2
+Libs: -L/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/lib -lgsl ${GSL_CBLAS_LIB} -lm -lm 
+Cflags: -I/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include

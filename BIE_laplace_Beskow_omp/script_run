@@ -1,0 +1,3 @@
+cd api
+aprun -n 1 -d 32 -cc none ./main_exe
+cd ..

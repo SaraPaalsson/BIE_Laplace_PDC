@@ -1,0 +1,11 @@
+cd build/
+rm CMakeCache.txt
+rm -rf CMakeFiles
+rm cmake_install.cmake
+rm Makefile
+cmake ..
+make clean
+make
+cd ../api
+aprun -n 1 -d 32 -cc none ./main_exe
+cd ..

@@ -8,11 +8,11 @@
 
 
 
-void computeError(double * perrorvec, double * pu, double * pu_spec, double * pu_ana, double * pumax){
+void computeError(double * perrorvec, double * pu, double * pu_spec, double * pu_ana, double * pumax, int nbr_elements){
 	int i;
 	double errormax = 0;
 
-	for (i = 0; i < NBR_DOMAIN_POINTS; i++) {
+	for (i = 0; i < nbr_elements; i++) {
 		perrorvec[i] = fabs(pu_spec[i]-pu_ana[i])/(*pumax);
 		if (errormax < perrorvec[i])
 			errormax = perrorvec[i];

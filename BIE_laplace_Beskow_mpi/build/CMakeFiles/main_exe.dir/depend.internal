@@ -3,85 +3,85 @@
 
 CMakeFiles/main_exe.dir/src/computeError.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeError.c
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/src/computeError.c
 CMakeFiles/main_exe.dir/src/computeSolution.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeSolution.c
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/src/computeSolution.c
 CMakeFiles/main_exe.dir/src/init.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/init.c
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/src/init.c
 CMakeFiles/main_exe.dir/src/initFunction.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/initFunction.c
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/src/initFunction.c
 CMakeFiles/main_exe.dir/src/main.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/main.c
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/src/main.c
 CMakeFiles/main_exe.dir/src/solveDensity.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/solveDensity.c
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_blas.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_blas_types.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_char.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_complex_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_complex_float.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_complex_long_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_float.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_int.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_long.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_long_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_short.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_uchar.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_uint.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_ulong.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_ushort.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_cblas.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_check_range.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_complex.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_errno.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_inline.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_linalg.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_machine.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_math.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_char.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_complex_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_complex_float.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_complex_long_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_float.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_int.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_long.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_long_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_short.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_uchar.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_uint.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_ulong.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_matrix_ushort.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_minmax.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_mode.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_nan.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_permutation.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_pow_int.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_precision.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_sys.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_types.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_char.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_complex.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_complex_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_complex_float.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_complex_long_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_float.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_int.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_long.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_long_double.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_short.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_uchar.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_uint.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_ulong.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_ushort.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/src/solveDensity.c
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_blas.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_blas_types.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_char.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_complex_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_complex_float.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_complex_long_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_float.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_int.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_long.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_long_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_short.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_uchar.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_uint.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_ulong.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_block_ushort.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_cblas.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_check_range.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_complex.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_errno.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_inline.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_linalg.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_machine.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_math.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_char.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_complex_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_complex_float.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_complex_long_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_float.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_int.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_long.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_long_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_short.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_uchar.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_uint.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_ulong.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_matrix_ushort.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_minmax.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_mode.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_nan.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_permutation.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_pow_int.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_precision.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_sys.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_types.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_char.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_complex.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_complex_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_complex_float.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_complex_long_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_float.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_int.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_long.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_long_double.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_short.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_uchar.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_uint.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_ulong.h
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl/include/gsl/gsl_vector_ushort.h
 CMakeFiles/main_exe.dir/src/specialquadlapl.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/specialquadlapl.c
+ /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/src/specialquadlapl.c

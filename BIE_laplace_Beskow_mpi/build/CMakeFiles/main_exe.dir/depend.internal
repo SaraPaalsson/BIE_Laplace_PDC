@@ -3,22 +3,22 @@
 
 CMakeFiles/main_exe.dir/src/computeError.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeError.c
+ /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeError.c
 CMakeFiles/main_exe.dir/src/computeSolution.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeSolution.c
+ /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeSolution.c
 CMakeFiles/main_exe.dir/src/init.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/init.c
+ /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/init.c
 CMakeFiles/main_exe.dir/src/initFunction.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/initFunction.c
+ /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/initFunction.c
 CMakeFiles/main_exe.dir/src/main.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/main.c
+ /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/main.c
 CMakeFiles/main_exe.dir/src/solveDensity.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/solveDensity.c
+ /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/solveDensity.c
  /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_blas.h
  /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_blas_types.h
  /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_block_char.h
@@ -84,4 +84,4 @@ CMakeFiles/main_exe.dir/src/solveDensity.c.o
  /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include/gsl/gsl_vector_ushort.h
 CMakeFiles/main_exe.dir/src/specialquadlapl.c.o
  ../api/BIELaplace.h
- /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/specialquadlapl.c
+ /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/specialquadlapl.c

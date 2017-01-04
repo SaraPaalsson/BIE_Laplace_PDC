@@ -6,5 +6,5 @@ C_FLAGS =  -g -Wall
 
 C_DEFINES = 
 
-C_INCLUDES = -I/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/vecLib_INCLUDE_DIR -I/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/api -I/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include 
+C_INCLUDES = -I/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/vecLib_INCLUDE_DIR -I/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/api -I/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl/include 
 

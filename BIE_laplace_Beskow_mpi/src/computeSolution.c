@@ -5,17 +5,13 @@
 #include "BIELaplace.h"
 
 
-void computeSolution(double * pmu, double complex * pz, double * pwDrops, double complex * pzDrops, double complex * pzDropsp, double * pu)
+void computeSolution(double * pmu, double complex * pz, double * pwDrops, double complex * pzDrops, double complex * pzDropsp, double * pu, int nbr_elements)
 {
-	int i, j, k;
-	for(i = 0; i < NBR_R; ++i){
-		for (j = 0; j < NBR_T; ++j){
-			pu[i * NBR_T +  j] = pu[i * NBR_T +  j] * 0;
-			for (k = 0; k < NBR_PANEL_POINTS; ++k){
-			  pu[i * NBR_T +  j] =  pu[i * NBR_T +  j] + pmu[k] * pwDrops[k] * cimag(pzDropsp[k] / (pzDrops[k] - pz[i * NBR_T + j])) * 1.0 / (2.0 * M_PI);
+	int i, j;
+	for(i = 0; i < nbr_elements; ++i){
+		        for (j = 0; j < NBR_PANEL_POINTS; ++j){
+			  pu[i] =  pu[i] + pmu[j] * pwDrops[j] * cimag(pzDropsp[j] / (pzDrops[j] - pz[i])) * 1.0 / (2.0 * M_PI);
 			}
-			//	pu[i * NBR_T +  j] = pu[i * NBR_T +  j] * 1.0 / (2.0 * M_PI);
-		}
 	}
 }
 

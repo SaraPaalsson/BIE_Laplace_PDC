@@ -3,6 +3,7 @@
 #include <complex.h>
 #include <math.h>
 #include "BIELaplace.h"
+#include "mpi.h"
 //#include <clapack.h>
 
 double getTime() {
@@ -34,62 +35,93 @@ int main(int argc, char const *argv[])
 	pu_ana: pointer to the analytical solution in the points in pz.
 	perrorvec: pointer to the error perrorvec.
 	*/
-
-	double umax;
-
-	double * pumax;	
-
-	umax = 0; // Used to obtain relative error.
-	pumax = &umax;
+  
+        MPI_Status status;
+	int rank, size, j;
+	int root = 0;
+	//        MPI_Init(&argc, &argv);
+	MPI_Init(NULL, NULL);
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank); // Get rank for process
+	MPI_Comm_size(MPI_COMM_WORLD, &size); // Get number of processes.
 
 
    	// Allocate memory for complex double pointers.
-   	double complex * pz = malloc(NBR_DOMAIN_POINTS * sizeof(complex double));
 	double complex * pzDrops = malloc(NBR_PANEL_POINTS * sizeof(complex double));
 	double complex * pzDropsp = malloc(NBR_PANEL_POINTS * sizeof(complex double));
 	double complex * pzDropspp = malloc(NBR_PANEL_POINTS * sizeof(complex double));
 	double complex * ppanels = malloc((NBR_PANELS + 1) * sizeof(complex double));
 	
 	// Allocate memory for double pointers.
-	double * RHS = malloc(NBR_PANEL_POINTS * sizeof(double));
-	double * ptpar = malloc(NBR_PANEL_POINTS * sizeof(double));
+
 	double * pwDrops = malloc(NBR_PANEL_POINTS * sizeof(double));
 	double * pmu = malloc(NBR_PANEL_POINTS * sizeof(double));
-	double * pu = malloc(NBR_DOMAIN_POINTS * sizeof(double));
-	double * pu_spec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
-	double * pu_ana = malloc(NBR_DOMAIN_POINTS * sizeof(double));
-	double * perrorvec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
+	double * pu_proc = calloc(NBR_T,  sizeof(double));
+	double * pu_spec_proc = calloc(NBR_T, sizeof(double));
+	double * pu_ana_proc = calloc(NBR_T, sizeof(double));
+	double * perrorvec_proc = calloc(NBR_T, sizeof(double));
 	
-	//Initialize the domain.
-	init_domain(pz,pzDrops,pzDropsp,pzDropspp,ppanels,ptpar,pwDrops);
-	//Evaluate the given right hand side and obtain the analytial solution.
-	init_function(RHS, pu_ana, pzDrops, pz, pumax);
-	//Solve for density pmu.
+	double umax;
+        double * pumax;
+
+        umax = 0; // Used to obtain relative error.                                                                                                                                                                 
+        pumax = &umax;
+
+
+        // Allocate memory for complex double pointers.                                                                                                                                                             
+	
+
+	double complex * pz_proc =  malloc(NBR_T * sizeof(complex double));
+        // Allocate memory for double pointers.                                                                                                                                                                     
+        double * RHS = malloc(NBR_PANEL_POINTS * sizeof(double));
+        double * ptpar = malloc(NBR_PANEL_POINTS * sizeof(double));
+        double * pu = calloc(NBR_DOMAIN_POINTS, sizeof(double));
+        double * pu_spec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
+        double * pu_ana = malloc(NBR_DOMAIN_POINTS * sizeof(double));
+        double * perrorvec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
+
+	
+        if(rank == root){
+	  double complex * pz = malloc(NBR_DOMAIN_POINTS * sizeof(complex double));
+	//Initialize the domain. 
+	  init_domain(pz,pzDrops,pzDropsp,pzDropspp,ppanels,ptpar,pwDrops);
+	  //Evaluate the given right hand side and obtain the analytial solution.                                                                                                                                     
+        init_function(RHS, pu_ana, pzDrops, pz, pumax);
+        //Solve for density pmu.                                                                                                                                                                                    
 	solveDensity(pzDrops, pzDropsp, pzDropspp, pwDrops, RHS, pmu);
-	// for (int i = 0; i < NBR_PANEL_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pmu[i]);
-	// }
-	//Evaluate the solution pu.
+		MPI_Scatter(pz, NBR_T, MPI_C_DOUBLE_COMPLEX, pz_proc, NBR_T, MPI_C_DOUBLE_COMPLEX, root, MPI_COMM_WORLD);
+
+
+	//	MPI_Scatter(pz, NBR_T, MPI_C_DOUBLE_COMPLEX, pz_proc, NBR_T, MPI_C_DOUBLE_COMPLEX, root, MPI_COMM_WORLD);
+
+	
+	}
+
+	MPI_Barrier(MPI_COMM_WORLD);
+	MPI_Bcast(pz, NBR_DOMAIN_POINTS, MPI_C_DOUBLE_COMPLEX, root,MPI_COMM_WORLD);
+	MPI_Bcast(pzDrops, NBR_PANEL_POINTS, MPI_C_DOUBLE_COMPLEX, root,MPI_COMM_WORLD);	
+	MPI_Bcast(pzDropsp, NBR_PANEL_POINTS, MPI_C_DOUBLE_COMPLEX, root,MPI_COMM_WORLD);
+	MPI_Bcast(ppanels, NBR_PANEL_POINTS, MPI_C_DOUBLE_COMPLEX, root,MPI_COMM_WORLD);
+	MPI_Bcast(pwDrops, NBR_PANEL_POINTS, MPI_DOUBLE, root,MPI_COMM_WORLD);
+	MPI_Bcast(pmu, NBR_PANEL_POINTS, MPI_DOUBLE, root, MPI_COMM_WORLD);
+	MPI_Bcast(pu_ana, NBR_DOMAIN_POINTS, MPI_DOUBLE, root, MPI_COMM_WORLD);
+	MPI_Bcast(pumax, 1, MPI_DOUBLE, root, MPI_COMM_WORLD);
+ 	MPI_Barrier(MPI_COMM_WORLD);
+
 	double time = getTime();
-	computeSolution(pmu, pz, pwDrops, pzDrops, pzDropsp, pu);
-	printf("%-20s : %lf s\n","Time",getTime()-time);
-	// for (int i = 0; i < NBR_DOMAIN_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pu[i]);
-	// }
-	//Evaluate the solution pu_spec with special quadrature.
+	computeSolution(pmu, pz_proc, pwDrops, pzDrops, pzDropsp, pu_proc, NBR_T);
+
+	//	printf("%-20s : %lf s\n","Time",getTime()-time);
+
+	MPI_Gather(pu_proc, 10, MPI_DOUBLE, pu, 10, MPI_DOUBLE, root, MPI_COMM_WORLD);
+	if(rank == root){
 	specialquadlapl(pu_spec, pu, pmu, pz, pzDrops, pzDropsp, pwDrops, ppanels);	
-	// for (int i = 0; i < NBR_DOMAIN_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pu_spec[i]);
-	// }
+
 
 
 	//Compute the error perrorvec.
 	computeError(perrorvec, pu, pu_spec, pu_ana, pumax);
-
-//Free allocated space.
+	}
+	//Free allocated space.
 	free(pzDrops);
 	free(pzDropsp);
 	free(pzDropspp);
@@ -102,7 +134,12 @@ int main(int argc, char const *argv[])
 	free(pu_spec);
 	free(pu_ana);
 	free(perrorvec);
-
+	free(pu_proc);
+	free(pu_spec_proc);
+	free(pu_ana_proc);
+	free(perrorvec_proc);
+	free(pz_proc); 
+	MPI_Finalize();
 	return 0;
 }
 

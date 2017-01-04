@@ -43,10 +43,10 @@ RM = /cfs/klemming/pdc.vol.beskow/cmake/3.7.1/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow
+CMAKE_SOURCE_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build
+CMAKE_BINARY_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main_exe.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/main_exe.dir/flags.make
 
 CMakeFiles/main_exe.dir/src/main.c.o: CMakeFiles/main_exe.dir/flags.make
 CMakeFiles/main_exe.dir/src/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main_exe.dir/src/main.c.o"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/main.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main_exe.dir/src/main.c.o"
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/main.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/main.c
 
 CMakeFiles/main_exe.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_exe.dir/src/main.c.i"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/main.c > CMakeFiles/main_exe.dir/src/main.c.i
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/main.c > CMakeFiles/main_exe.dir/src/main.c.i
 
 CMakeFiles/main_exe.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_exe.dir/src/main.c.s"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/main.c -o CMakeFiles/main_exe.dir/src/main.c.s
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/main.c -o CMakeFiles/main_exe.dir/src/main.c.s
 
 CMakeFiles/main_exe.dir/src/main.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/main_exe.dir/src/main.c.o.provides.build: CMakeFiles/main_exe.dir/src
 
 CMakeFiles/main_exe.dir/src/init.c.o: CMakeFiles/main_exe.dir/flags.make
 CMakeFiles/main_exe.dir/src/init.c.o: ../src/init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main_exe.dir/src/init.c.o"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/init.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main_exe.dir/src/init.c.o"
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/init.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/init.c
 
 CMakeFiles/main_exe.dir/src/init.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_exe.dir/src/init.c.i"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/init.c > CMakeFiles/main_exe.dir/src/init.c.i
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/init.c > CMakeFiles/main_exe.dir/src/init.c.i
 
 CMakeFiles/main_exe.dir/src/init.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_exe.dir/src/init.c.s"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/init.c -o CMakeFiles/main_exe.dir/src/init.c.s
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/init.c -o CMakeFiles/main_exe.dir/src/init.c.s
 
 CMakeFiles/main_exe.dir/src/init.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/main_exe.dir/src/init.c.o.provides.build: CMakeFiles/main_exe.dir/src
 
 CMakeFiles/main_exe.dir/src/initFunction.c.o: CMakeFiles/main_exe.dir/flags.make
 CMakeFiles/main_exe.dir/src/initFunction.c.o: ../src/initFunction.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main_exe.dir/src/initFunction.c.o"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/initFunction.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/initFunction.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main_exe.dir/src/initFunction.c.o"
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/initFunction.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/initFunction.c
 
 CMakeFiles/main_exe.dir/src/initFunction.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_exe.dir/src/initFunction.c.i"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/initFunction.c > CMakeFiles/main_exe.dir/src/initFunction.c.i
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/initFunction.c > CMakeFiles/main_exe.dir/src/initFunction.c.i
 
 CMakeFiles/main_exe.dir/src/initFunction.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_exe.dir/src/initFunction.c.s"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/initFunction.c -o CMakeFiles/main_exe.dir/src/initFunction.c.s
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/initFunction.c -o CMakeFiles/main_exe.dir/src/initFunction.c.s
 
 CMakeFiles/main_exe.dir/src/initFunction.c.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/main_exe.dir/src/initFunction.c.o.provides.build: CMakeFiles/main_exe
 
 CMakeFiles/main_exe.dir/src/solveDensity.c.o: CMakeFiles/main_exe.dir/flags.make
 CMakeFiles/main_exe.dir/src/solveDensity.c.o: ../src/solveDensity.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main_exe.dir/src/solveDensity.c.o"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/solveDensity.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/solveDensity.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main_exe.dir/src/solveDensity.c.o"
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/solveDensity.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/solveDensity.c
 
 CMakeFiles/main_exe.dir/src/solveDensity.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_exe.dir/src/solveDensity.c.i"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/solveDensity.c > CMakeFiles/main_exe.dir/src/solveDensity.c.i
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/solveDensity.c > CMakeFiles/main_exe.dir/src/solveDensity.c.i
 
 CMakeFiles/main_exe.dir/src/solveDensity.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_exe.dir/src/solveDensity.c.s"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/solveDensity.c -o CMakeFiles/main_exe.dir/src/solveDensity.c.s
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/solveDensity.c -o CMakeFiles/main_exe.dir/src/solveDensity.c.s
 
 CMakeFiles/main_exe.dir/src/solveDensity.c.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/main_exe.dir/src/solveDensity.c.o.provides.build: CMakeFiles/main_exe
 
 CMakeFiles/main_exe.dir/src/computeSolution.c.o: CMakeFiles/main_exe.dir/flags.make
 CMakeFiles/main_exe.dir/src/computeSolution.c.o: ../src/computeSolution.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main_exe.dir/src/computeSolution.c.o"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/computeSolution.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeSolution.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main_exe.dir/src/computeSolution.c.o"
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/computeSolution.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeSolution.c
 
 CMakeFiles/main_exe.dir/src/computeSolution.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_exe.dir/src/computeSolution.c.i"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeSolution.c > CMakeFiles/main_exe.dir/src/computeSolution.c.i
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeSolution.c > CMakeFiles/main_exe.dir/src/computeSolution.c.i
 
 CMakeFiles/main_exe.dir/src/computeSolution.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_exe.dir/src/computeSolution.c.s"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeSolution.c -o CMakeFiles/main_exe.dir/src/computeSolution.c.s
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeSolution.c -o CMakeFiles/main_exe.dir/src/computeSolution.c.s
 
 CMakeFiles/main_exe.dir/src/computeSolution.c.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/main_exe.dir/src/computeSolution.c.o.provides.build: CMakeFiles/main_
 
 CMakeFiles/main_exe.dir/src/specialquadlapl.c.o: CMakeFiles/main_exe.dir/flags.make
 CMakeFiles/main_exe.dir/src/specialquadlapl.c.o: ../src/specialquadlapl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main_exe.dir/src/specialquadlapl.c.o"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/specialquadlapl.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/specialquadlapl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main_exe.dir/src/specialquadlapl.c.o"
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/specialquadlapl.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/specialquadlapl.c
 
 CMakeFiles/main_exe.dir/src/specialquadlapl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_exe.dir/src/specialquadlapl.c.i"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/specialquadlapl.c > CMakeFiles/main_exe.dir/src/specialquadlapl.c.i
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/specialquadlapl.c > CMakeFiles/main_exe.dir/src/specialquadlapl.c.i
 
 CMakeFiles/main_exe.dir/src/specialquadlapl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_exe.dir/src/specialquadlapl.c.s"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/specialquadlapl.c -o CMakeFiles/main_exe.dir/src/specialquadlapl.c.s
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/specialquadlapl.c -o CMakeFiles/main_exe.dir/src/specialquadlapl.c.s
 
 CMakeFiles/main_exe.dir/src/specialquadlapl.c.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/main_exe.dir/src/specialquadlapl.c.o.provides.build: CMakeFiles/main_
 
 CMakeFiles/main_exe.dir/src/computeError.c.o: CMakeFiles/main_exe.dir/flags.make
 CMakeFiles/main_exe.dir/src/computeError.c.o: ../src/computeError.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main_exe.dir/src/computeError.c.o"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/computeError.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeError.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main_exe.dir/src/computeError.c.o"
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main_exe.dir/src/computeError.c.o   -c /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeError.c
 
 CMakeFiles/main_exe.dir/src/computeError.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_exe.dir/src/computeError.c.i"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeError.c > CMakeFiles/main_exe.dir/src/computeError.c.i
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeError.c > CMakeFiles/main_exe.dir/src/computeError.c.i
 
 CMakeFiles/main_exe.dir/src/computeError.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_exe.dir/src/computeError.c.s"
-	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeError.c -o CMakeFiles/main_exe.dir/src/computeError.c.s
+	/opt/cray/craype/2.2.1/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeError.c -o CMakeFiles/main_exe.dir/src/computeError.c.s
 
 CMakeFiles/main_exe.dir/src/computeError.c.o.requires:
 
@@ -247,7 +247,7 @@ main_exe_EXTERNAL_OBJECTS =
 ../api/main_exe: CMakeFiles/main_exe.dir/src/computeError.c.o
 ../api/main_exe: CMakeFiles/main_exe.dir/build.make
 ../api/main_exe: CMakeFiles/main_exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable ../api/main_exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable ../api/main_exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -270,6 +270,6 @@ CMakeFiles/main_exe.dir/clean:
 .PHONY : CMakeFiles/main_exe.dir/clean
 
 CMakeFiles/main_exe.dir/depend:
-	cd /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles/main_exe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles/main_exe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main_exe.dir/depend
 

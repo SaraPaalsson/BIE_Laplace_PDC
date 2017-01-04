@@ -1,4 +1,4 @@
-# Install script for directory: /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow
+# Install script for directory: /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

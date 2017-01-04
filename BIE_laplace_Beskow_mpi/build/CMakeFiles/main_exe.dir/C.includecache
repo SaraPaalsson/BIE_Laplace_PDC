@@ -8,7 +8,7 @@
 
 ../api/BIELaplace.h
 
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeError.c
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeError.c
 stdio.h
 -
 stdlib.h
@@ -18,9 +18,9 @@ complex.h
 math.h
 -
 BIELaplace.h
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/BIELaplace.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/BIELaplace.h
 
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/computeSolution.c
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/computeSolution.c
 stdio.h
 -
 stdlib.h
@@ -30,9 +30,9 @@ complex.h
 math.h
 -
 BIELaplace.h
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/BIELaplace.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/BIELaplace.h
 
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/init.c
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/init.c
 stdio.h
 -
 stdlib.h
@@ -42,9 +42,9 @@ complex.h
 math.h
 -
 BIELaplace.h
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/BIELaplace.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/BIELaplace.h
 
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/initFunction.c
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/initFunction.c
 stdio.h
 -
 stdlib.h
@@ -54,9 +54,9 @@ complex.h
 math.h
 -
 BIELaplace.h
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/BIELaplace.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/BIELaplace.h
 
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/main.c
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/main.c
 stdio.h
 -
 stdlib.h
@@ -66,9 +66,11 @@ complex.h
 math.h
 -
 BIELaplace.h
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/BIELaplace.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/BIELaplace.h
+mpi.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/mpi.h
 
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/solveDensity.c
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/solveDensity.c
 stdio.h
 -
 stdlib.h
@@ -78,11 +80,11 @@ complex.h
 math.h
 -
 BIELaplace.h
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/BIELaplace.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/BIELaplace.h
 gsl/gsl_linalg.h
 -
 
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/specialquadlapl.c
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/specialquadlapl.c
 string.h
 -
 complex.h
@@ -92,7 +94,7 @@ stdio.h
 stdlib.h
 -
 BIELaplace.h
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/src/BIELaplace.h
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/src/BIELaplace.h
 math.h
 -
 

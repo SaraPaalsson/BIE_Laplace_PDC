@@ -48,10 +48,10 @@ RM = /cfs/klemming/pdc.vol.beskow/cmake/3.7.1/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow
+CMAKE_SOURCE_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build
+CMAKE_BINARY_DIR = /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_mpi/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

@@ -8,7 +8,8 @@ enable_language(Fortran)
 
 set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}${GCC_COVERAGE_LINK_FLAGS}")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
-set(OWN_GSL /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl)
+#set(OWN_GSL /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/gsl)
+set(OWN_GSL /cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/gsl)
 set(GSL_DIR "OWN_GSL")
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/api)

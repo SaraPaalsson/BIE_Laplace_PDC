@@ -2,6 +2,9 @@ a.out
 BIE_laplace_Beskow_old
 *~
 test.c
+BIE_laplace_Beskow_omp/api/main_exe
+BIE_laplace_Beskow_mpi/api/main_exe
+BIE_laplace_Beskow/api/main_exe
 BIE_laplace_Beskow_mpi/build/*
 BIE_laplace_Beskow_omp/build/*
 BIE_laplace_Beskow_hybrid/build/*

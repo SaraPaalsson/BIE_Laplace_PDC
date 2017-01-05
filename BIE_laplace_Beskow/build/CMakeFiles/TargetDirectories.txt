@@ -1,3 +1,0 @@
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles/rebuild_cache.dir
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles/edit_cache.dir
-/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow/build/CMakeFiles/main_exe.dir

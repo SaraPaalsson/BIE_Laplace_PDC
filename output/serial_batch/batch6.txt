@@ -1,0 +1,12 @@
+Timings for run on starfish
+Parameters: 
+Npanels = 20 
+Ndomain_points = 25600 
+
+Error : 1.0966348471478108e-07 
+
+Time for density: 0.048720 
+Time for solution: 0.130844 
+Time for special quad: 0.162178 
+
+Total time: 0.344870 

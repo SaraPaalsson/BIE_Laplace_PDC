@@ -1,0 +1,13 @@
+Run batch jobs for set Npanels=20, and varying nbr_domain_points.
+Start with
+	- batch1: nbr_r = 5, nbr_t = 5 -> 25
+	- batch2: nbr_r = 10, nbr_t = 10 -> 100 
+	- batch3: nbr_r = 20, nbr_t = 20 -> 400
+	- batch4: nbr_r = 40, nbr_t = 40 -> 1 600
+	- batch5: nbr_r = 80, nbr_t = 80 -> 6 400
+	- batch6: nbr_r = 160, nbr_t = 160 -> 25 600
+	- batch7: nbr_r = 320, nbr_t = 320 -> 102 400
+	- batch8: nbr_r = 640, nbr_t = 640 -> 409 600
+	- batch9: nbr_r = 1280, nbr_t = 1280 -> 1 638 400
+	- batch10: nbr_r = 1280, nbr_t = 2560 -> 3 276 800
+	- batch11: nbr_r = 1280, nbr_t = 5120 -> 6 553 600

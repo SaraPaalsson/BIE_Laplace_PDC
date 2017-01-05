@@ -58,37 +58,23 @@ int main(int argc, char const *argv[])
 	
 
 	
-	if(nbr_extra_el){
-	  printf("Inside if\n");
-	  for(i = 0; i < nbr_proc; i ++){
-	    displs[i] = (i != 0)?pnbr_el_proc[i-1]+displs[i-1]:0;
-	    pnbr_el_proc[i] = (i < nbr_extra_el)?nbr_el_proc+1:nbr_el_proc;
-	  }
-	    
-	}
-
-
-	
-	
-
-
-
-
    	// Allocate memory for complex double pointers.
 	double complex * pzDrops = malloc(NBR_PANEL_POINTS * sizeof(complex double));
 	double complex * pzDropsp = malloc(NBR_PANEL_POINTS * sizeof(complex double));
 	double complex * pzDropspp = malloc(NBR_PANEL_POINTS * sizeof(complex double));
 	double complex * ppanels = malloc((NBR_PANELS + 1) * sizeof(complex double));
-	double complex * pz_proc = malloc(nbr_el_proc * sizeof(complex double));
-	double complex *pz = NULL;
+	double complex * pz_proc;
+	double complex * pz = NULL;
 
 	// Allocate memory for double pointers.
 	double * pwDrops = malloc(NBR_PANEL_POINTS * sizeof(double));
 	double * pmu = malloc(NBR_PANEL_POINTS * sizeof(double));
-        double * pu_proc = malloc(nbr_el_proc * sizeof(double));
-        double * pu_spec_proc = malloc(nbr_el_proc * sizeof(double));
-        double * pu_ana_proc = malloc(nbr_el_proc * sizeof(double));
-        double * perrorvec_proc = malloc(nbr_el_proc * sizeof(double));
+	
+	double * pu_proc;
+	double * pu_spec_proc;
+	double * pu_ana_proc;
+	double * perrorvec_proc;
+
         double * pumax;	
 	
 	double * pu_spec = NULL;
@@ -103,12 +89,13 @@ int main(int argc, char const *argv[])
 	double umax;
 	umax = 0; // Used to obtain relative error.
 	pumax = &umax;
+	double global_error_max = 0;
 
 
 
 
 	if(rank == root){
-
+	  
 		//Initialize domain arrays
 		pz = malloc(NBR_DOMAIN_POINTS * sizeof(complex double));
 		pu_spec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
@@ -139,15 +126,27 @@ int main(int argc, char const *argv[])
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if(nbr_extra_el){
+  	  for(i = 0; i < nbr_proc; i ++){
+	    displs[i] = (i != 0)?pnbr_el_proc[i-1]+displs[i-1]:0;
+	    pnbr_el_proc[i] = (i < nbr_extra_el)?nbr_el_proc+1:nbr_el_proc;
+	  }
+
+	  pz_proc = malloc(pnbr_el_proc[rank] * sizeof(complex double));
+	  pu_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
+	  pu_spec_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
+	  pu_ana_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
+	  perrorvec_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
+
+
 	  MPI_Scatterv(pu,pnbr_el_proc, displs, MPI_DOUBLE,pu_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
 	  MPI_Scatterv(pz,pnbr_el_proc,displs,MPI_C_DOUBLE_COMPLEX,pz_proc,pnbr_el_proc[rank], MPI_C_DOUBLE_COMPLEX,root,MPI_COMM_WORLD);
 	  MPI_Scatterv(pu_spec,pnbr_el_proc,displs,MPI_DOUBLE,pu_spec_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
 	  MPI_Scatterv(perrorvec,pnbr_el_proc,displs,MPI_DOUBLE,perrorvec_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
 	  MPI_Scatterv(pu_ana,pnbr_el_proc,displs,MPI_DOUBLE,pu_ana_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
 
-	//	double time = getTime();
+
         computeSolution(pmu, pz_proc, pwDrops, pzDrops, pzDropsp, pu_proc,nbr_el_proc);
-	//	printf("%-20s : %lf s\n","Time",getTime()-time);
+
       
 	//Evaluate the solution pu_spec with special quadrature.
 	specialquadlapl(pu_spec_proc, pu_proc, pmu, pz_proc, pzDrops, pzDropsp, pwDrops, ppanels,nbr_el_proc);	
@@ -155,18 +154,21 @@ int main(int argc, char const *argv[])
 
 	//Compute the error perrorvec.
 	computeError(perrorvec_proc, pu_proc, pu_spec_proc, pu_ana_proc, pumax, nbr_el_proc);
-
-	printf("Before gatherv\n");
 	MPI_Barrier(MPI_COMM_WORLD);
 	MPI_Gatherv(pu_proc, pnbr_el_proc[rank], MPI_DOUBLE, pu, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
-	printf("Before gatherv pu_spec_proc \n");
 	MPI_Gatherv(pu_spec_proc, pnbr_el_proc[rank], MPI_DOUBLE, pu_spec, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
-	printf("Before gatherv perrorvec_proc \n");
 	MPI_Gatherv(perrorvec_proc, pnbr_el_proc[rank], MPI_DOUBLE, perrorvec, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
-	printf("Gatherv complete\n");
 	MPI_Barrier(MPI_COMM_WORLD);
+
 	}else{
-	  
+	  if(rank == root) printf("Equally distributed workload.\n");
+       
+	  pz_proc = malloc(nbr_el_proc * sizeof(complex double));
+	  pu_proc = malloc(nbr_el_proc * sizeof(double));
+	  pu_spec_proc = malloc(nbr_el_proc * sizeof(double));
+	  pu_ana_proc = malloc(nbr_el_proc * sizeof(double));
+        perrorvec_proc = malloc(nbr_el_proc * sizeof(double));
+
         MPI_Scatter(pu,nbr_el_proc,MPI_DOUBLE,pu_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
         MPI_Scatter(pz,nbr_el_proc,MPI_C_DOUBLE_COMPLEX,pz_proc,nbr_el_proc,MPI_C_DOUBLE_COMPLEX,root,MPI_COMM_WORLD);
 	MPI_Scatter(pu_spec,nbr_el_proc,MPI_DOUBLE,pu_spec_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
@@ -183,7 +185,10 @@ int main(int argc, char const *argv[])
 
 	//Compute the error perrorvec.
 	computeError(perrorvec_proc, pu_proc, pu_spec_proc, pu_ana_proc, pumax,nbr_el_proc);
-
+	MPI_Reduce(pumax, &global_error_max, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+	if(rank == root) printf("max error: %12.16e \n",global_error_max);
+	
+	
 
 	MPI_Barrier(MPI_COMM_WORLD);
 	MPI_Gather(pu_proc,nbr_el_proc,MPI_DOUBLE,pu,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
@@ -193,34 +198,38 @@ int main(int argc, char const *argv[])
 
 }
 
-
+	
 	//Free allocated space.
-	printf("Before free\n");
+
 	free(pzDrops);
 	free(pzDropsp);
 	free(pzDropspp);
-	free(ppanels);
-	free(pwDrops);
+	free(ppanels);                                                                                                                                                    
+        free(pwDrops);
 	free(pmu);
-	free(pu_proc); 
-	free(pz_proc);
-	free(pu_spec_proc);
-	free(pu_ana_proc);
-	free(perrorvec_proc);
-	free(RHS);
-	free(ptpar);
-	free(pu_spec);
-	free(pu_ana);
-	free(perrorvec);
-	free(pu);
-	free(pz);
-       	printf("Free complete\n");
+	free(pu_proc);
+        free(pz_proc);
+        free(pu_spec_proc);
+        free(pu_ana_proc);
+        free(perrorvec_proc);
+        free(RHS);
+        free(ptpar);
+        free(pu_spec);
+        free(pu_ana);
+        free(perrorvec);
+        free(pu);
+        free(pz);
+	
+        if(rank == root) printf("Free complete\n");
+	
+	
 	MPI_Barrier(MPI_COMM_WORLD);
 
-	printf("Before MPI_Finalize\n");
+
 	MPI_Finalize();
-	printf("MPI_Finalize complete \n");
-	
+	if(rank == root) printf("MPI_Finalize complete \n");
+
+
 
 	return 0;
 }

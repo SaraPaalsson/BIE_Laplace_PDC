@@ -59,35 +59,45 @@ int main(int argc, char const *argv[])
 	double * pu_spec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
 	double * pu_ana = malloc(NBR_DOMAIN_POINTS * sizeof(double));
 	double * perrorvec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
+
+	double timeStart = getTime();
 	
 	//Initialize the domain.
 	init_domain(pz,pzDrops,pzDropsp,pzDropspp,ppanels,ptpar,pwDrops);
 	//Evaluate the given right hand side and obtain the analytial solution.
 	init_function(RHS, pu_ana, pzDrops, pz, pumax);
+
+	double timeInit = getTime();
+
 	//Solve for density pmu.
 	solveDensity(pzDrops, pzDropsp, pzDropspp, pwDrops, RHS, pmu);
-	// for (int i = 0; i < NBR_PANEL_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pmu[i]);
-	// }
+	
+	double timeDensity = getTime();	
+
 	//Evaluate the solution pu.
-	double time = getTime();
 	computeSolution(pmu, pz, pwDrops, pzDrops, pzDropsp, pu);
-	printf("%-20s : %lf s\n","Time",getTime()-time);
-	// for (int i = 0; i < NBR_DOMAIN_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pu[i]);
-	// }
+
+	double timeSol = getTime();
+	
 	//Evaluate the solution pu_spec with special quadrature.
 	specialquadlapl(pu_spec, pu, pmu, pz, pzDrops, pzDropsp, pwDrops, ppanels);	
-	// for (int i = 0; i < NBR_DOMAIN_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pu_spec[i]);
-	// }
 
+	double timeSpecQ = getTime();
 
 	//Compute the error perrorvec.
 	computeError(perrorvec, pu, pu_spec, pu_ana, pumax);
+
+	printf("Timings for run on starfish\n");
+        printf("Parameters: \n");
+        printf("Npanels = %d \n", NBR_PANELS);
+        printf("NBR_R = %d \t NBR_T = %d\n",NBR_R,NBR_T);
+        printf("Ndomain_points = %d \n", NBR_DOMAIN_POINTS);
+        printf("Time for density: %lf\n", timeDensity-timeInit);
+        printf("Time for solution: %lf\n",timeSol-timeDensity);
+        printf("Time for special quad: %lf\n",timeSpecQ-timeSol);
+        printf("\n");
+        printf("Total time: %lf\n", timeSpecQ-timeInit);
+
 
 //Free allocated space.
 	free(pzDrops);

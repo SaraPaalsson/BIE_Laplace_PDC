@@ -77,10 +77,6 @@ int main(int argc, char const *argv[])
 	solveDensity(pzDrops, pzDropsp, pzDropspp, pwDrops, RHS, pmu);
 	time_solveDens = getTime()-time_solveDens;
 
-	// for (int i = 0; i < NBR_PANEL_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pmu[i]);
-	// }
 
 	//Evaluate the solution pu.
 	double 	time_cmptSol = getTime();
@@ -88,30 +84,23 @@ int main(int argc, char const *argv[])
 	time_cmptSol = getTime()-time_cmptSol;
 
 
-	// for (int i = 0; i < NBR_DOMAIN_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pu[i]);
-	// }
-
-
 	//Evaluate the solution pu_spec with special quadrature.
 	double time_specialQuad = getTime();
 	specialquadlapl(pu_spec, pu, pmu, pz, pzDrops, pzDropsp, pwDrops, ppanels);	
 	time_specialQuad = getTime()-time_specialQuad;
 
-	// for (int i = 0; i < NBR_DOMAIN_POINTS; ++i)
-	// {
-	// 	printf("%2.14f\n", pu_spec[i]);
-	// }
-
-
 	//Compute the error perrorvec.
-        double time_cmptError = getTime();
+	double time_cmptError = getTime();	
 	computeError(perrorvec, pu, pu_spec, pu_ana, pumax);
 	time_cmptError = getTime() - time_cmptError;
 	
 	double time_tot = time_initDomain + time_initFunc + time_solveDens + time_cmptSol + time_specialQuad + time_cmptError;
 
+        printf("Timings for run on starfish\n");
+        printf("Parameters: \n");
+        printf("Npanels = %d \n", NBR_PANELS);
+        printf("NBR_R = %d \t NBR_T = %d\n",NBR_R,NBR_T);
+        printf("Ndomain_points = %d \n", NBR_DOMAIN_POINTS);
 	printf("\n");
         printf("%-20s   %-9s   %s \n"," Function", "Time", "percentage");
         printf("%-20s : %lf s  %lf %%\n","Initialize domain", time_initDomain, time_initDomain/time_tot);

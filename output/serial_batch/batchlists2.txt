@@ -1,0 +1,25 @@
+All runs same number domain points:
+        NBR_R = 640;
+        NBR_T = 640;
+        => N = 409 600;
+
+batch20: Npanels = 5;
+
+batch21: Npanels = 10;
+
+batch22: Npanels = 20;
+
+batch23: Npanels = 40;
+
+batch24: Npanels = 60;
+
+batch25: Npanels = 80;
+
+batch26: Npanels = 100;
+
+batch27: Npanels = 140;
+
+batch28: Npanels = 180:
+
+batch29: Npanels = 220;
+

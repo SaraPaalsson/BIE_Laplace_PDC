@@ -1,0 +1,15 @@
+CrayPat/X:  Version 6.3.0 Revision 14378  09/15/15 10:48:06
+Timings for run on starfish
+Parameters: 
+Npanels = 80 
+NBR_R = 640 	 NBR_T = 640
+Ndomain_points = 409600 
+Time for density: 14.844606
+Time for solution: 6.140250
+Time for special quad: 1.584772
+
+Total time: 22.569628
+Error: 4.6643892796440758e-14
+Experiment data file written:
+/cfs/klemming/nobackup/s/sarapal/project/hpc_summerschool2016/BIE_laplace_Beskow/batchscripts/main_exe+pat+52618-1642t.xf
+Application 7254158 resources: utime ~22s, stime ~1s, Rss ~41240, inblocks ~136648, outblocks ~22600

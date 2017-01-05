@@ -1,3 +1,0 @@
-/cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/build/CMakeFiles/rebuild_cache.dir
-/cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/build/CMakeFiles/edit_cache.dir
-/cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/build/CMakeFiles/main_exe.dir

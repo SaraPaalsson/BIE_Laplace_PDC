@@ -162,7 +162,7 @@ void IPmultR(const double complex *in, double complex *out) {
 }
 
 
-void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double complex *zDom, double complex *zDrops, double complex *zpDrops, double *wDrops, double complex *panels) {
+void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double complex *zDom, double complex *zDrops, double complex *zpDrops, double *wDrops, double complex *panels, int nbr_elements) {
 
   int i, k, j;
   int furthercheck;
@@ -179,7 +179,7 @@ void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double co
   tf   = malloc(16 * sizeof(complex double));
 
   /* Go through all points in domain and compute new solution if needed */
-  for (i = 0; i < NBR_DOMAIN_POINTS; i++ ){
+  for (i = 0; i < nbr_elements; i++ ){
     u_specq[i] = u_standardq[i];
     zk = zDom[i];
     for (k = 0; k < NBR_PANELS; k++){

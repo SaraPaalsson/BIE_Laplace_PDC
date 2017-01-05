@@ -38,12 +38,12 @@ int main(int argc, char const *argv[])
 	*/
 
   
-        MPI_Status status;
+  //        MPI_Status status;
 
 	int root = 0;
   
 	int rank, nbr_proc, nbr_el_proc, nbr_extra_el, i;
-
+	double time_total = getTime();
 
 	MPI_Init(NULL,NULL);
 	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
@@ -227,8 +227,30 @@ int main(int argc, char const *argv[])
 
 
 	MPI_Finalize();
-	if(rank == root) printf("MPI_Finalize complete \n");
+	if(rank == root){
+	  printf("MPI_Finalize complete \n");
 
+        time_total = getTime() - time_total;
+
+	//        double time_tot = time_initDomain + time_initFunc + time_solveDens + time_cmptSol + time_specialQuad + time_cmptError;
+
+        printf("Timings for run on starfish\n");
+        printf("Parameters: \n");
+        printf("Npanels = %d \n", NBR_PANELS);
+        printf("NBR_R = %d \t NBR_T = %d\n",NBR_R,NBR_T);
+        printf("Ndomain_points = %d \n", NBR_DOMAIN_POINTS);
+        printf("\n");
+        printf("%-20s   %-9s   %s \n"," Function", "Time", "percentage");
+        printf("%-20s : %lf s  %lf %%\n","Total time", time_total,100* time_total/time_total);
+	/*        printf("%-20s : %lf s  %lf %%\n","Initialize domain", time_initDomain, time_initDomain/time_tot);
+        printf("%-20s : %lf s  %lf %%\n","Initialize rhs", time_initFunc, time_initFunc/time_tot);
+        printf("%-20s : %lf s  %lf %%\n","Solve for density", time_solveDens, time_solveDens/time_tot);
+        printf("%-20s : %lf s  %lf %%\n","Compute solution", time_cmptSol, time_cmptSol/time_tot);
+        printf("%-20s : %lf s  %lf %%\n","Special quadrature", time_specialQuad, time_specialQuad/time_tot);
+        printf("%-20s : %lf s  %lf %%\n","Compute error", time_cmptError, time_cmptError/time_tot);
+	*/
+        printf("\n");
+	}
 
 
 	return 0;

@@ -61,7 +61,7 @@ int main(int argc, char const *argv[])
 	double * pu_spec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
 	double * pu_ana = malloc(NBR_DOMAIN_POINTS * sizeof(double));
 	double * perrorvec = malloc(NBR_DOMAIN_POINTS * sizeof(double));
-	
+	 
 	//Initialize the domain.
         double time_initDomain = getTime();
 	init_domain(pz,pzDrops,pzDropsp,pzDropspp,ppanels,ptpar,pwDrops);

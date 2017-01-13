@@ -91,8 +91,9 @@ int main(int argc, char const *argv[])
 	pumax = &umax;
 	double global_error_max = 0;
 
-
-
+	double time1,time2,time3,time4;
+	double * time_cmptSol, * time_specialQuad, * time_cmptError;
+	double timetotal_cmptSol, timetotal_specialQuad, timetotal_cmptError;
 
 	if(rank == root){
 	  
@@ -126,77 +127,103 @@ int main(int argc, char const *argv[])
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if(nbr_extra_el){
-  	  for(i = 0; i < nbr_proc; i ++){
-	    displs[i] = (i != 0)?pnbr_el_proc[i-1]+displs[i-1]:0;
-	    pnbr_el_proc[i] = (i < nbr_extra_el)?nbr_el_proc+1:nbr_el_proc;
-	  }
+  		for(i = 0; i < nbr_proc; i ++){
+	    		displs[i] = (i != 0)?pnbr_el_proc[i-1]+displs[i-1]:0;
+	    		pnbr_el_proc[i] = (i < nbr_extra_el)?nbr_el_proc+1:nbr_el_proc;
+	  	}	
 
-	  pz_proc = malloc(pnbr_el_proc[rank] * sizeof(complex double));
-	  pu_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
-	  pu_spec_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
-	  pu_ana_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
-	  perrorvec_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
-
-
-	  MPI_Scatterv(pu,pnbr_el_proc, displs, MPI_DOUBLE,pu_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
-	  MPI_Scatterv(pz,pnbr_el_proc,displs,MPI_C_DOUBLE_COMPLEX,pz_proc,pnbr_el_proc[rank], MPI_C_DOUBLE_COMPLEX,root,MPI_COMM_WORLD);
-	  MPI_Scatterv(pu_spec,pnbr_el_proc,displs,MPI_DOUBLE,pu_spec_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
-	  MPI_Scatterv(perrorvec,pnbr_el_proc,displs,MPI_DOUBLE,perrorvec_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
-	  MPI_Scatterv(pu_ana,pnbr_el_proc,displs,MPI_DOUBLE,pu_ana_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
+	  	pz_proc = malloc(pnbr_el_proc[rank] * sizeof(complex double));
+	  	pu_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
+	  	pu_spec_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
+	  	pu_ana_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
+	  	perrorvec_proc = malloc(pnbr_el_proc[rank] * sizeof(double));
 
 
-        computeSolution(pmu, pz_proc, pwDrops, pzDrops, pzDropsp, pu_proc,nbr_el_proc);
+	  	MPI_Scatterv(pu,pnbr_el_proc, displs, MPI_DOUBLE,pu_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
+	  	MPI_Scatterv(pz,pnbr_el_proc,displs,MPI_C_DOUBLE_COMPLEX,pz_proc,pnbr_el_proc[rank], MPI_C_DOUBLE_COMPLEX,root,MPI_COMM_WORLD);
+	  	MPI_Scatterv(pu_spec,pnbr_el_proc,displs,MPI_DOUBLE,pu_spec_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
+	  	MPI_Scatterv(perrorvec,pnbr_el_proc,displs,MPI_DOUBLE,perrorvec_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
+	  	MPI_Scatterv(pu_ana,pnbr_el_proc,displs,MPI_DOUBLE,pu_ana_proc,pnbr_el_proc[rank], MPI_DOUBLE,root,MPI_COMM_WORLD);
 
-      
-	//Evaluate the solution pu_spec with special quadrature.
-	specialquadlapl(pu_spec_proc, pu_proc, pmu, pz_proc, pzDrops, pzDropsp, pwDrops, ppanels,nbr_el_proc);	
+		// Compute the solution pu with standard quadrature
+		time1 = MPI_Wtime();
+        	computeSolution(pmu, pz_proc, pwDrops, pzDrops, pzDropsp, pu_proc,nbr_el_proc);
+		time2 = MPI_Wtime()-time1;
+		time_cmptSol = &time2;    
+  
+		//Evaluate the solution pu_spec with special quadrature.
+		time1 = MPI_Wtime();
+		specialquadlapl(pu_spec_proc, pu_proc, pmu, pz_proc, pzDrops, pzDropsp, pwDrops, ppanels,nbr_el_proc);	
+		time2 = MPI_Wtime()-time1;
+		time_specialQuad = &time2;
 
 
-	//Compute the error perrorvec.
-	computeError(perrorvec_proc, pu_proc, pu_spec_proc, pu_ana_proc, pumax, nbr_el_proc);
-	MPI_Barrier(MPI_COMM_WORLD);
-	MPI_Gatherv(pu_proc, pnbr_el_proc[rank], MPI_DOUBLE, pu, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
-	MPI_Gatherv(pu_spec_proc, pnbr_el_proc[rank], MPI_DOUBLE, pu_spec, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
-	MPI_Gatherv(perrorvec_proc, pnbr_el_proc[rank], MPI_DOUBLE, perrorvec, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
-	MPI_Barrier(MPI_COMM_WORLD);
+		//Compute the error perrorvec.
+		time1 = MPI_Wtime();
+		computeError(perrorvec_proc, pu_proc, pu_spec_proc, pu_ana_proc, pumax, nbr_el_proc);
+		time2 = MPI_Wtime()-time1;
+		time_cmptError = &time2;
+
+		MPI_Barrier(MPI_COMM_WORLD);
+        
+		MPI_Reduce(pumax, &global_error_max, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+      		MPI_Reduce(time_cmptSol, &timetotal_cmptSol, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+		MPI_Reduce(time_specialQuad, &timetotal_specialQuad, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+		MPI_Reduce(time_cmptError, &timetotal_cmptError, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+        	//if(rank == root) printf("max error: %12.16e \n",global_error_max);
+
+		MPI_Gatherv(pu_proc, pnbr_el_proc[rank], MPI_DOUBLE, pu, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
+		MPI_Gatherv(pu_spec_proc, pnbr_el_proc[rank], MPI_DOUBLE, pu_spec, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
+		MPI_Gatherv(perrorvec_proc, pnbr_el_proc[rank], MPI_DOUBLE, perrorvec, pnbr_el_proc, displs, MPI_DOUBLE, root, MPI_COMM_WORLD);
+		MPI_Barrier(MPI_COMM_WORLD);
 
 	}else{
-	  if(rank == root) printf("Equally distributed workload.\n");
+	  	if(rank == root) printf("Equally distributed workload.\n");
        
-	  pz_proc = malloc(nbr_el_proc * sizeof(complex double));
-	  pu_proc = malloc(nbr_el_proc * sizeof(double));
-	  pu_spec_proc = malloc(nbr_el_proc * sizeof(double));
-	  pu_ana_proc = malloc(nbr_el_proc * sizeof(double));
-        perrorvec_proc = malloc(nbr_el_proc * sizeof(double));
+	  	pz_proc = malloc(nbr_el_proc * sizeof(complex double));
+	  	pu_proc = malloc(nbr_el_proc * sizeof(double));
+	  	pu_spec_proc = malloc(nbr_el_proc * sizeof(double));
+	  	pu_ana_proc = malloc(nbr_el_proc * sizeof(double));
+        	perrorvec_proc = malloc(nbr_el_proc * sizeof(double));
 
-        MPI_Scatter(pu,nbr_el_proc,MPI_DOUBLE,pu_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
-        MPI_Scatter(pz,nbr_el_proc,MPI_C_DOUBLE_COMPLEX,pz_proc,nbr_el_proc,MPI_C_DOUBLE_COMPLEX,root,MPI_COMM_WORLD);
-	MPI_Scatter(pu_spec,nbr_el_proc,MPI_DOUBLE,pu_spec_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
-	MPI_Scatter(perrorvec,nbr_el_proc,MPI_DOUBLE,perrorvec_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
-	MPI_Scatter(pu_ana,nbr_el_proc,MPI_DOUBLE,pu_ana_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
+        	MPI_Scatter(pu,nbr_el_proc,MPI_DOUBLE,pu_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
+        	MPI_Scatter(pz,nbr_el_proc,MPI_C_DOUBLE_COMPLEX,pz_proc,nbr_el_proc,MPI_C_DOUBLE_COMPLEX,root,MPI_COMM_WORLD);
+		MPI_Scatter(pu_spec,nbr_el_proc,MPI_DOUBLE,pu_spec_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
+		MPI_Scatter(perrorvec,nbr_el_proc,MPI_DOUBLE,perrorvec_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
+		MPI_Scatter(pu_ana,nbr_el_proc,MPI_DOUBLE,pu_ana_proc,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
 
-	//	double time = getTime();
-        computeSolution(pmu, pz_proc, pwDrops, pzDrops, pzDropsp, pu_proc,nbr_el_proc);
-	//	printf("%-20s : %lf s\n","Time",getTime()-time);
-      
-	//Evaluate the solution pu_spec with special quadrature.
-	specialquadlapl(pu_spec_proc, pu_proc, pmu, pz_proc, pzDrops, pzDropsp, pwDrops, ppanels,nbr_el_proc);	
+        	// Compute solution pu with standard quadrature
+		time1 = MPI_Wtime();
+		computeSolution(pmu, pz_proc, pwDrops, pzDrops, pzDropsp, pu_proc,nbr_el_proc);
+     		time2 = MPI_Wtime()-time1;
+                time_cmptSol = &time2; 
+		
+		//Evaluate the solution pu_spec with special quadrature.
+		//time1 = MPI_Wtime();
+		specialquadlapl(pu_spec_proc, pu_proc, pmu, pz_proc, pzDrops, pzDropsp, pwDrops, ppanels,nbr_el_proc);	
+		time2 = MPI_Wtime()-time1;
+		time_specialQuad = &time2;
 
+		//Compute the error perrorvec.
+		//time1 = MPI_Wtime();
+		computeError(perrorvec_proc, pu_proc, pu_spec_proc, pu_ana_proc, pumax,nbr_el_proc);
+		time2 = MPI_Wtime()-time1;
+                time_cmptError = &time2;
 
-	//Compute the error perrorvec.
-	computeError(perrorvec_proc, pu_proc, pu_spec_proc, pu_ana_proc, pumax,nbr_el_proc);
-	MPI_Reduce(pumax, &global_error_max, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
-	if(rank == root) printf("max error: %12.16e \n",global_error_max);
+		MPI_Barrier(MPI_COMM_WORLD);
 	
-	
+		MPI_Reduce(pumax, &global_error_max, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+		MPI_Reduce(time_cmptSol, &timetotal_cmptSol, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+                MPI_Reduce(time_specialQuad, &timetotal_specialQuad, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);
+                MPI_Reduce(time_cmptError, &timetotal_cmptError, 1, MPI_DOUBLE, MPI_MAX, root, MPI_COMM_WORLD);	
 
-	MPI_Barrier(MPI_COMM_WORLD);
-	MPI_Gather(pu_proc,nbr_el_proc,MPI_DOUBLE,pu,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
-	MPI_Gather(pu_spec_proc,nbr_el_proc,MPI_DOUBLE,pu_spec,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
-	MPI_Gather(perrorvec_proc,nbr_el_proc,MPI_DOUBLE,perrorvec,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
-	MPI_Barrier(MPI_COMM_WORLD);
 
-}
+		MPI_Gather(pu_proc,nbr_el_proc,MPI_DOUBLE,pu,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
+		MPI_Gather(pu_spec_proc,nbr_el_proc,MPI_DOUBLE,pu_spec,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
+		MPI_Gather(perrorvec_proc,nbr_el_proc,MPI_DOUBLE,perrorvec,nbr_el_proc,MPI_DOUBLE,root,MPI_COMM_WORLD);
+		MPI_Barrier(MPI_COMM_WORLD);
+
+	}
 
 	
 	//Free allocated space.
@@ -228,28 +255,27 @@ int main(int argc, char const *argv[])
 
 	MPI_Finalize();
 	if(rank == root){
-	  printf("MPI_Finalize complete \n");
+	  	printf("MPI_Finalize complete \n");
 
-        time_total = getTime() - time_total;
+	        time_total = getTime() - time_total;
 
-	//        double time_tot = time_initDomain + time_initFunc + time_solveDens + time_cmptSol + time_specialQuad + time_cmptError;
 
-        printf("Timings for run on starfish\n");
-        printf("Parameters: \n");
-        printf("Npanels = %d \n", NBR_PANELS);
-        printf("NBR_R = %d \t NBR_T = %d\n",NBR_R,NBR_T);
-        printf("Ndomain_points = %d \n", NBR_DOMAIN_POINTS);
-        printf("\n");
-        printf("%-20s   %-9s   %s \n"," Function", "Time", "percentage");
-        printf("%-20s : %lf s  %lf %%\n","Total time", time_total,100* time_total/time_total);
-	/*        printf("%-20s : %lf s  %lf %%\n","Initialize domain", time_initDomain, time_initDomain/time_tot);
-        printf("%-20s : %lf s  %lf %%\n","Initialize rhs", time_initFunc, time_initFunc/time_tot);
-        printf("%-20s : %lf s  %lf %%\n","Solve for density", time_solveDens, time_solveDens/time_tot);
-        printf("%-20s : %lf s  %lf %%\n","Compute solution", time_cmptSol, time_cmptSol/time_tot);
-        printf("%-20s : %lf s  %lf %%\n","Special quadrature", time_specialQuad, time_specialQuad/time_tot);
-        printf("%-20s : %lf s  %lf %%\n","Compute error", time_cmptError, time_cmptError/time_tot);
-	*/
-        printf("\n");
+        	printf("Timings for run on starfish\n");
+        	printf("Parameters: \n");
+        	printf("Npanels = %d \n", NBR_PANELS);
+        	printf("NBR_R = %d \t NBR_T = %d\n",NBR_R,NBR_T);
+        	printf("Ndomain_points = %d \n", NBR_DOMAIN_POINTS);
+		printf("Number processes: %d\n",nbr_proc);
+	        printf("\n");
+        	printf("%-20s   %-9s   %s \n"," Function", "Time", "percentage");
+        	printf("%-20s : %lf s  %lf %%\n","Total time", time_total,100* time_total/time_total);
+        	printf("%-20s : %lf s  %lf %%\n","Compute solution", timetotal_cmptSol,100* timetotal_cmptSol/time_total);
+   		printf("%-20s : %lf s  %lf %%\n","Special quadrature", timetotal_specialQuad,100* timetotal_specialQuad/time_total);
+        	printf("%-20s : %lf s  %lf %%\n","Compute error", timetotal_cmptError, 100*timetotal_cmptError/time_total);
+        	printf("\n");
+	
+		printf("Max error: %12.16e \n",global_error_max);
+
 	}
 
 

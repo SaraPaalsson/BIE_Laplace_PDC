@@ -1,0 +1,21 @@
+CrayPat/X:  Version 6.3.0 Revision 14378  09/15/15 10:48:06
+Equally distributed workload.
+Free complete
+MPI_Finalize complete 
+Timings for run on starfish
+Parameters: 
+Npanels = 20 
+NBR_R = 2000 	 NBR_T = 6400
+Ndomain_points = 12800000 
+Number processes: 32
+
+ Function              Time        percentage 
+Total time           : 29.170350 s  100.000000 %
+Compute solution     : 25.322837 s  86.810193 %
+Special quadrature   : 25.322837 s  86.810193 %
+Compute error        : 25.322837 s  86.810193 %
+
+Max error: 4.2392938905426995e-07 
+Experiment data file written:
+/cfs/klemming/nobackup/s/sarapal/project/BIE_Laplace_PDC/BIE_laplace_Beskow_mpi/batchscripts/main_exe+pat+47568-1610t.xf
+Application 7493237 resources: utime ~837s, stime ~101s, Rss ~641552, inblocks ~16503871, outblocks ~22997

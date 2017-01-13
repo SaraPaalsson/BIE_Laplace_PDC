@@ -1,0 +1,13 @@
+Information about weak scaling tests
+======================================
+
+Npanels = 20;
+Problem size/processor = 400 000;
+(keeping NBR_R constant)
+
+weak1: NBR_R=2000, NBR_T=200
+weak2: NBR_R=2000, NBR_T=400
+weak3: NBR_T=800
+weak4: NBR_T=1600
+weak5: NBR_T = 3200
+weak6: NBR_T = 6400

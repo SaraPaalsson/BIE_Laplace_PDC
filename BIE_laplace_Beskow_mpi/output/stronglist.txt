@@ -1,0 +1,16 @@
+Information about strong scaling runs MPI
+==========================================
+
+Change simulations by set --ntasks-per-node and -n in runpat.sh
+
+Domain discretization:
+	* NBR_R = 3000;
+	* NBR_T = 5000;
+Npanels: 20
+
+batch1: -n 1
+batch2: -n 2
+batch3: -n 4
+batch4: -n 8
+batch5: -n 16
+batch6: -n 32

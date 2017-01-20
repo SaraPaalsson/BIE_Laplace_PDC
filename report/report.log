@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.12)  4 JAN 2017 09:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.12)  20 JAN 2017 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,28 +955,25 @@ s.code.tex
 \tikz@lib@dec@box=\box52
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
-brarydecorations.markings.code.tex)) (./report.aux
-
-LaTeX Warning: Label `tab:batch4_serial_caches' multiply defined.
-
-)
+brarydecorations.markings.code.tex)) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
- (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+
+(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count147
 \scratchdimen=\dimen199
@@ -991,7 +988,7 @@ LaTeX Font Info:    ... okay on input line 68.
 \everyMPtoPDFconversion=\toks41
 )
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 68.
+Package hyperref Info: Link coloring OFF on input line 70.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1000,9 +997,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count153
 )
-LaTeX Info: Redefining \ref on input line 68.
-LaTeX Info: Redefining \pageref on input line 68.
-LaTeX Info: Redefining \nameref on input line 68.
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
 
 (./report.out) (./report.out)
 \@outlinefile=\write4
@@ -1046,11 +1043,11 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+LaTeX Font Info:    Try loading font information for U+msa on input line 73.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+LaTeX Font Info:    Try loading font information for U+msb on input line 73.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1059,29 +1056,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: Graphics/starfish_grid.png Graphic file (type png)
 
 <use Graphics/starfish_grid.png>
-Package pdftex.def Info: Graphics/starfish_grid.png used on input line 79.
+Package pdftex.def Info: Graphics/starfish_grid.png used on input line 81.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 
 <Graphics/starfish_BIE.png, id=13, 562.1pt x 421.575pt>
 File: Graphics/starfish_BIE.png Graphic file (type png)
 
 <use Graphics/starfish_BIE.png>
-Package pdftex.def Info: Graphics/starfish_BIE.png used on input line 80.
+Package pdftex.def Info: Graphics/starfish_BIE.png used on input line 82.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--87
+Underfull \hbox (badness 10000) in paragraph at lines 78--89
 
  []
 
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 107--111
+Underfull \hbox (badness 10000) in paragraph at lines 109--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--118
+Underfull \hbox (badness 10000) in paragraph at lines 116--120
 
  []
 
@@ -1091,7 +1088,7 @@ File: Graphics/filled_error_panels35.png Graphic file (type png)
 
 <use Graphics/filled_error_panels35.png>
 Package pdftex.def Info: Graphics/filled_error_panels35.png used on input line 
-137.
+139.
 (pdftex.def)             Requested size: 209.1301pt x 167.34454pt.
 
 <Graphics/filled_error_panels70.png, id=54, 207.05354pt x 165.67897pt>
@@ -1099,7 +1096,7 @@ File: Graphics/filled_error_panels70.png Graphic file (type png)
 
 <use Graphics/filled_error_panels70.png>
 Package pdftex.def Info: Graphics/filled_error_panels70.png used on input line 
-138.
+140.
 (pdftex.def)             Requested size: 209.1301pt x 167.34454pt.
 
 <Graphics/fillederror_SQ_panels35.png, id=55, 207.05354pt x 165.67897pt>
@@ -1107,14 +1104,14 @@ File: Graphics/fillederror_SQ_panels35.png Graphic file (type png)
 
 <use Graphics/fillederror_SQ_panels35.png>
 Package pdftex.def Info: Graphics/fillederror_SQ_panels35.png used on input lin
-e 145.
+e 147.
 (pdftex.def)             Requested size: 209.1301pt x 167.34454pt.
 
 <Graphics/contour_panels35.png, id=57, 207.05354pt x 165.67897pt>
 File: Graphics/contour_panels35.png Graphic file (type png)
 
 <use Graphics/contour_panels35.png>
-Package pdftex.def Info: Graphics/contour_panels35.png used on input line 153.
+Package pdftex.def Info: Graphics/contour_panels35.png used on input line 155.
 (pdftex.def)             Requested size: 209.1301pt x 167.34454pt.
 
 <Graphics/contour_SQ_panels35.png, id=58, 207.05354pt x 165.67897pt>
@@ -1122,118 +1119,214 @@ File: Graphics/contour_SQ_panels35.png Graphic file (type png)
 
 <use Graphics/contour_SQ_panels35.png>
 Package pdftex.def Info: Graphics/contour_SQ_panels35.png used on input line 15
-4.
+6.
 (pdftex.def)             Requested size: 209.1301pt x 167.34454pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--159
+Underfull \hbox (badness 10000) in paragraph at lines 133--161
 
  []
 
 [3 <./Graphics/filled_error_panels35.png (PNG copy)> <./Graphics/filled_error_p
 anels70.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 162--169
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--169
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--169
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
 
  []
 
 [4 <./Graphics/fillederror_SQ_panels35.png (PNG copy)> <./Graphics/contour_pane
 ls35.png (PNG copy)> <./Graphics/contour_SQ_panels35.png (PNG copy)>]
-<Graphics/timing_serial_npanels20.png, id=92, 562.1pt x 421.575pt>
+<Graphics/timing_serial_npanels20.png, id=93, 562.1pt x 421.575pt>
 File: Graphics/timing_serial_npanels20.png Graphic file (type png)
 
 <use Graphics/timing_serial_npanels20.png>
 Package pdftex.def Info: Graphics/timing_serial_npanels20.png used on input lin
-e 178.
+e 180.
 (pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
 
-<Graphics/craypat_serial_batch4_calls_pie.png, id=95, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch4_calls_pie.png, id=96, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch4_calls_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch4_calls_pie.png>
 Package pdftex.def Info: Graphics/craypat_serial_batch4_calls_pie.png used on i
-nput line 188.
+nput line 190.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_serial_batch4_time_pie.png, id=96, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch4_time_pie.png, id=97, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch4_time_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch4_time_pie.png>
 Package pdftex.def Info: Graphics/craypat_serial_batch4_time_pie.png used on in
-put line 189.
+put line 191.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_serial_batch10_calls_pie.png, id=99, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch10_calls_pie.png, id=100, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch10_calls_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch10_calls_pie.png>
 Package pdftex.def Info: Graphics/craypat_serial_batch10_calls_pie.png used on 
-input line 214.
+input line 216.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_serial_batch10_time_pie.png, id=100, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch10_time_pie.png, id=101, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch10_time_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch10_time_pie.png>
 Package pdftex.def Info: Graphics/craypat_serial_batch10_time_pie.png used on i
-nput line 215.
+nput line 217.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--235
+Underfull \hbox (badness 10000) in paragraph at lines 187--237
 
  []
 
-[5] [6 <./Graphics/timing_serial_npanels20.png (PNG copy)>]
+[5] [6 <./Graphics/timing_serial_npanels20.png (PNG copy)>] [7 <./Graphics/cray
+pat_serial_batch4_calls_pie.png (PNG copy)> <./Graphics/craypat_serial_batch4_t
+ime_pie.png (PNG copy)> <./Graphics/craypat_serial_batch10_calls_pie.png (PNG c
+opy)> <./Graphics/craypat_serial_batch10_time_pie.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 245--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+
+ []
+
+<Graphics/omp_fixed_domain_size_loglog.png, id=127, 562.1pt x 421.575pt>
+File: Graphics/omp_fixed_domain_size_loglog.png Graphic file (type png)
+
+<use Graphics/omp_fixed_domain_size_loglog.png>
+Package pdftex.def Info: Graphics/omp_fixed_domain_size_loglog.png used on inpu
+t line 256.
+(pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
+
+<Graphics/omp_strong_pie_calls.png, id=131, 465.74pt x 382.42876pt>
+File: Graphics/omp_strong_pie_calls.png Graphic file (type png)
+
+<use Graphics/omp_strong_pie_calls.png>
+Package pdftex.def Info: Graphics/omp_strong_pie_calls.png used on input line 2
+80.
+(pdftex.def)             Requested size: 209.1301pt x 171.71788pt.
+
+<Graphics/omp_strong_pie_time.png, id=132, 465.74pt x 373.395pt>
+File: Graphics/omp_strong_pie_time.png Graphic file (type png)
+
+<use Graphics/omp_strong_pie_time.png>
+Package pdftex.def Info: Graphics/omp_strong_pie_time.png used on input line 28
+1.
+(pdftex.def)             Requested size: 209.1301pt x 167.66154pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--286
+
+ []
+
+[8]
+<Graphics/omp_fixed_pntsPerThread_size_loglog.png, id=143, 562.1pt x 421.575pt>
+File: Graphics/omp_fixed_pntsPerThread_size_loglog.png Graphic file (type png)
+<use Graphics/omp_fixed_pntsPerThread_size_loglog.png>
+Package pdftex.def Info: Graphics/omp_fixed_pntsPerThread_size_loglog.png used 
+on input line 291.
+(pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
+ [9 <./Graphics/omp_fixed_domain_size_loglog.png (PNG copy)>] [10 <./Graphics/o
+mp_strong_pie_calls.png (PNG copy)> <./Graphics/omp_strong_pie_time.png (PNG co
+py)>]
+<Graphics/craypat_mpi_strongscaling.png, id=158, 562.1pt x 421.575pt>
+File: Graphics/craypat_mpi_strongscaling.png Graphic file (type png)
+
+<use Graphics/craypat_mpi_strongscaling.png>
+Package pdftex.def Info: Graphics/craypat_mpi_strongscaling.png used on input l
+ine 307.
+(pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
+
+<Graphics/mpi_loadimb.png, id=159, 562.1pt x 421.575pt>
+File: Graphics/mpi_loadimb.png Graphic file (type png)
+
+<use Graphics/mpi_loadimb.png>
+Package pdftex.def Info: Graphics/mpi_loadimb.png used on input line 314.
+(pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--321
+
+ []
+
+[11 <./Graphics/omp_fixed_pntsPerThread_size_loglog.png (PNG copy)>]
+<Graphics/craypat_mpi_threads32_calls_pie.png, id=171, 562.1pt x 421.575pt>
+File: Graphics/craypat_mpi_threads32_calls_pie.png Graphic file (type png)
+
+<use Graphics/craypat_mpi_threads32_calls_pie.png>
+Package pdftex.def Info: Graphics/craypat_mpi_threads32_calls_pie.png used on i
+nput line 339.
+(pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
+
+<Graphics/craypat_mpi_threads32_time_pie.png, id=172, 562.1pt x 421.575pt>
+File: Graphics/craypat_mpi_threads32_time_pie.png Graphic file (type png)
+
+<use Graphics/craypat_mpi_threads32_time_pie.png>
+Package pdftex.def Info: Graphics/craypat_mpi_threads32_time_pie.png used on in
+put line 340.
+(pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
+
+<Graphics/craypat_mpi_weakscaling.png, id=174, 562.1pt x 421.575pt>
+File: Graphics/craypat_mpi_weakscaling.png Graphic file (type png)
+
+<use Graphics/craypat_mpi_weakscaling.png>
+Package pdftex.def Info: Graphics/craypat_mpi_weakscaling.png used on input lin
+e 351.
+(pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
+ [12 <./Graphics/craypat_mpi_strongscaling.png (PNG copy)>] [13 <./Graphics/mpi
+_loadimb.png (PNG copy)> <./Graphics/craypat_mpi_threads32_calls_pie.png (PNG c
+opy)> <./Graphics/craypat_mpi_threads32_time_pie.png (PNG copy)>] [14 <./Graphi
+cs/craypat_mpi_weakscaling.png (PNG copy)>]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 241.
- [7 <./Graphics/craypat_serial_batch4_calls_pie.png (PNG copy)> <./Graphics/cra
-ypat_serial_batch4_time_pie.png (PNG copy)> <./Graphics/craypat_serial_batch10_
-calls_pie.png (PNG copy)> <./Graphics/craypat_serial_batch10_time_pie.png (PNG 
-copy)>] [8] [9]
-[10]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 292.
+ine 361.
+ [15
+
+] [16]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 395.
 
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 292.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 395.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 346.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 449.
 
-Overfull \hbox (61.20003pt too wide) detected at line 349
+Overfull \hbox (61.20003pt too wide) detected at line 452
 [][] 
  []
 
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 352.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 352.
+[17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 455.
+ [18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 455.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 352.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 352.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 455.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 455.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: C7A335BE1ECF5904B8E9DFBD358A3170;46.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 352.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 455.
  ) 
 Here is how much of TeX's memory you used:
- 20828 strings out of 493117
- 391695 string characters out of 6135432
- 482647 words of memory out of 5000000
- 23813 multiletter control sequences out of 15000+600000
- 12520 words of font info for 49 fonts, out of 8000000 for 9000
+ 20885 strings out of 493117
+ 393563 string characters out of 6135432
+ 483655 words of memory out of 5000000
+ 23852 multiletter control sequences out of 15000+600000
+ 12688 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,24n,80p,1449b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
@@ -1252,11 +1345,12 @@ ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
 014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
 4/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (12 pages, 819271 bytes).
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on report.pdf (18 pages, 1072778 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 236 compressed objects within 3 object streams
- 97 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 335 PDF objects out of 1000 (max. 8388607)
+ 273 compressed objects within 3 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

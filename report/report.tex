@@ -116,7 +116,7 @@ k(\tau,z) = \Im\left\{ \frac{\tau^\prime}{\tau-z}\right\}.
 \end{align}
 As $z$ becomes closer and closer to $\tau$, this will give us a denominator that is approaching zero, and the integrand will therefore grow rapidly. This will be increasingly difficult to resolve, and simply upsampling the discretization on the boundary $\delta\Omega$ will not be sufficient. For these cases, we need to do something different and will apply a special quadrature.
 \\ \\
-A short summation of the special quadrature follows. For a more detailed description, see \cite{ojalahelsing}. When it comes to solving \eqref{eq:ulapl} with special quadrature, we use the fact that the kernel \eqref{eq:kernel} is the same as in the monomials 
+A short summation of the special quadrature follows. For a more detailed description, see \footnote{Helsing, J. and Ojala, R., 2008. On the evaluation of layer potentials close to their sources. {\em Journal of Computational Physics}, 227(5), pp.2899-2921.}. When it comes to solving \eqref{eq:ulapl} with special quadrature, we use the fact that the kernel \eqref{eq:kernel} is the same as in the monomials 
 \begin{align}
     p_k(z) = \int \frac{\tau^k}{\tau-z}d\tau, \; k=0,\hdots,31.
     \label{eq:pkrec}
@@ -358,22 +358,23 @@ When investigating the weak scaling of the problem, Fig. \ref{fig:mpi_weaktime},
 \FloatBarrier
 
 \subsection*{Hybrid Method}
-\todo[inline]{How do we use both OpenMp and MPI?}
-\todo[inline]{Plot times}
+When parallelizing our code with both MPI and OpenMP, we divide the computational domain for the MPI tasks and then assign a certain number of threads for each when computing \code{computeSolution} and \code{specialquadlapl}. The total number of $32$ threads is spread over a varying number of MPI tasks. As previously, we set $N_{dom}=15\cdot10^6$. 
+\\ \\
+We observe the same behaviour as for MPI, i.e. the more MPI tasks we use the more \code{main} dominates our execution time. \code{computeSolution} and \code{specialquadlapl} is largely unaffected. 
 
-
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{Graphics/hybrid_plot.png}
+    \end{center}
+    \caption{Timings for hybrid code, $N_{dom}=15\cdot 10^6$.}
+    \label{fig:hybrid}
+\end{figure}
 \FloatBarrier
 
 
 
 \section*{Conclusions}
-\todo[inline]{WHat is good, what is worth doing?}
-
-\newpage
-\begin{thebibliography}{99}
-    \bibitem{ojalahelsing}
-    Helsing, J. and Ojala, R., 2008. On the evaluation of layer potentials close to their sources. {\em Journal of Computational Physics}, 227(5), pp.2899-2921.
-\end{thebibliography}
+MPI might not be the best solution for our problem. This because it creates unnecessary overhad, as all tasks need their own copy of all initial data. This is a substantional amount of data that needs to be passed. Additionally, the communication between master and slaves takes time. Using a hybrid version does not make the situation much better. Therefore, OpenMP is preferable to our problem. It seems to scale very well, both in the strong and weak sense, actually as well as theory allows.
 
 \newpage
 \appendix

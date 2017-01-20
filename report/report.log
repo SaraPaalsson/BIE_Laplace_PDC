@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.12)  20 JAN 2017 16:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.12)  20 JAN 2017 17:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,6 +1128,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--161
 
 [3 <./Graphics/filled_error_panels35.png (PNG copy)> <./Graphics/filled_error_p
 anels70.png (PNG copy)>]
+
+LaTeX Warning: Citation `ojalahelsing' on page 4 undefined on input line 170.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 164--171
 
  []
@@ -1144,7 +1148,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--171
 
 [4 <./Graphics/fillederror_SQ_panels35.png (PNG copy)> <./Graphics/contour_pane
 ls35.png (PNG copy)> <./Graphics/contour_SQ_panels35.png (PNG copy)>]
-<Graphics/timing_serial_npanels20.png, id=93, 562.1pt x 421.575pt>
+<Graphics/timing_serial_npanels20.png, id=95, 562.1pt x 421.575pt>
 File: Graphics/timing_serial_npanels20.png Graphic file (type png)
 
 <use Graphics/timing_serial_npanels20.png>
@@ -1152,7 +1156,7 @@ Package pdftex.def Info: Graphics/timing_serial_npanels20.png used on input lin
 e 180.
 (pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
 
-<Graphics/craypat_serial_batch4_calls_pie.png, id=96, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch4_calls_pie.png, id=98, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch4_calls_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch4_calls_pie.png>
@@ -1160,7 +1164,7 @@ Package pdftex.def Info: Graphics/craypat_serial_batch4_calls_pie.png used on i
 nput line 190.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_serial_batch4_time_pie.png, id=97, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch4_time_pie.png, id=99, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch4_time_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch4_time_pie.png>
@@ -1168,7 +1172,7 @@ Package pdftex.def Info: Graphics/craypat_serial_batch4_time_pie.png used on in
 put line 191.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_serial_batch10_calls_pie.png, id=100, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch10_calls_pie.png, id=102, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch10_calls_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch10_calls_pie.png>
@@ -1176,7 +1180,7 @@ Package pdftex.def Info: Graphics/craypat_serial_batch10_calls_pie.png used on
 input line 216.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_serial_batch10_time_pie.png, id=101, 562.1pt x 421.575pt>
+<Graphics/craypat_serial_batch10_time_pie.png, id=103, 562.1pt x 421.575pt>
 File: Graphics/craypat_serial_batch10_time_pie.png Graphic file (type png)
 
 <use Graphics/craypat_serial_batch10_time_pie.png>
@@ -1206,7 +1210,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 250--252
 
  []
 
-<Graphics/omp_fixed_domain_size_loglog.png, id=127, 562.1pt x 421.575pt>
+<Graphics/omp_fixed_domain_size_loglog.png, id=129, 562.1pt x 421.575pt>
 File: Graphics/omp_fixed_domain_size_loglog.png Graphic file (type png)
 
 <use Graphics/omp_fixed_domain_size_loglog.png>
@@ -1214,7 +1218,7 @@ Package pdftex.def Info: Graphics/omp_fixed_domain_size_loglog.png used on inpu
 t line 256.
 (pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
 
-<Graphics/omp_strong_pie_calls.png, id=131, 465.74pt x 382.42876pt>
+<Graphics/omp_strong_pie_calls.png, id=133, 465.74pt x 382.42876pt>
 File: Graphics/omp_strong_pie_calls.png Graphic file (type png)
 
 <use Graphics/omp_strong_pie_calls.png>
@@ -1222,7 +1226,7 @@ Package pdftex.def Info: Graphics/omp_strong_pie_calls.png used on input line 2
 80.
 (pdftex.def)             Requested size: 209.1301pt x 171.71788pt.
 
-<Graphics/omp_strong_pie_time.png, id=132, 465.74pt x 373.395pt>
+<Graphics/omp_strong_pie_time.png, id=134, 465.74pt x 373.395pt>
 File: Graphics/omp_strong_pie_time.png Graphic file (type png)
 
 <use Graphics/omp_strong_pie_time.png>
@@ -1235,7 +1239,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 253--286
  []
 
 [8]
-<Graphics/omp_fixed_pntsPerThread_size_loglog.png, id=143, 562.1pt x 421.575pt>
+<Graphics/omp_fixed_pntsPerThread_size_loglog.png, id=145, 562.1pt x 421.575pt>
 File: Graphics/omp_fixed_pntsPerThread_size_loglog.png Graphic file (type png)
 <use Graphics/omp_fixed_pntsPerThread_size_loglog.png>
 Package pdftex.def Info: Graphics/omp_fixed_pntsPerThread_size_loglog.png used 
@@ -1244,7 +1248,7 @@ on input line 291.
  [9 <./Graphics/omp_fixed_domain_size_loglog.png (PNG copy)>] [10 <./Graphics/o
 mp_strong_pie_calls.png (PNG copy)> <./Graphics/omp_strong_pie_time.png (PNG co
 py)>]
-<Graphics/craypat_mpi_strongscaling.png, id=158, 562.1pt x 421.575pt>
+<Graphics/craypat_mpi_strongscaling.png, id=160, 562.1pt x 421.575pt>
 File: Graphics/craypat_mpi_strongscaling.png Graphic file (type png)
 
 <use Graphics/craypat_mpi_strongscaling.png>
@@ -1252,7 +1256,7 @@ Package pdftex.def Info: Graphics/craypat_mpi_strongscaling.png used on input l
 ine 307.
 (pdftex.def)             Requested size: 341.43436pt x 256.07324pt.
 
-<Graphics/mpi_loadimb.png, id=159, 562.1pt x 421.575pt>
+<Graphics/mpi_loadimb.png, id=161, 562.1pt x 421.575pt>
 File: Graphics/mpi_loadimb.png Graphic file (type png)
 
 <use Graphics/mpi_loadimb.png>
@@ -1264,7 +1268,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 304--321
  []
 
 [11 <./Graphics/omp_fixed_pntsPerThread_size_loglog.png (PNG copy)>]
-<Graphics/craypat_mpi_threads32_calls_pie.png, id=171, 562.1pt x 421.575pt>
+<Graphics/craypat_mpi_threads32_calls_pie.png, id=173, 562.1pt x 421.575pt>
 File: Graphics/craypat_mpi_threads32_calls_pie.png Graphic file (type png)
 
 <use Graphics/craypat_mpi_threads32_calls_pie.png>
@@ -1272,7 +1276,7 @@ Package pdftex.def Info: Graphics/craypat_mpi_threads32_calls_pie.png used on i
 nput line 339.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_mpi_threads32_time_pie.png, id=172, 562.1pt x 421.575pt>
+<Graphics/craypat_mpi_threads32_time_pie.png, id=174, 562.1pt x 421.575pt>
 File: Graphics/craypat_mpi_threads32_time_pie.png Graphic file (type png)
 
 <use Graphics/craypat_mpi_threads32_time_pie.png>
@@ -1280,7 +1284,7 @@ Package pdftex.def Info: Graphics/craypat_mpi_threads32_time_pie.png used on in
 put line 340.
 (pdftex.def)             Requested size: 209.1301pt x 156.84871pt.
 
-<Graphics/craypat_mpi_weakscaling.png, id=174, 562.1pt x 421.575pt>
+<Graphics/craypat_mpi_weakscaling.png, id=176, 562.1pt x 421.575pt>
 File: Graphics/craypat_mpi_weakscaling.png Graphic file (type png)
 
 <use Graphics/craypat_mpi_weakscaling.png>
@@ -1291,44 +1295,57 @@ e 351.
 _loadimb.png (PNG copy)> <./Graphics/craypat_mpi_threads32_calls_pie.png (PNG c
 opy)> <./Graphics/craypat_mpi_threads32_time_pie.png (PNG copy)>] [14 <./Graphi
 cs/craypat_mpi_weakscaling.png (PNG copy)>]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 361.
+Underfull \hbox (badness 10000) in paragraph at lines 361--364
+
+ []
+
+<Graphics/hybrid_plot.png, id=194, 692.5875pt x 562.1pt>
+File: Graphics/hybrid_plot.png Graphic file (type png)
+
+<use Graphics/hybrid_plot.png>
+Package pdftex.def Info: Graphics/hybrid_plot.png used on input line 367.
+(pdftex.def)             Requested size: 341.43436pt x 277.11249pt.
  [15
 
-] [16]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 395.
+ <./Graphics/hybrid_plot.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 396.
 
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 395.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 396.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 449.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 450.
 
-Overfull \hbox (61.20003pt too wide) detected at line 452
+Overfull \hbox (61.20003pt too wide) detected at line 453
 [][] 
  []
 
-[17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 455.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 455.
+[16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 456.
+ [17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 456.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 455.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 455.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 456.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 456.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: C7A335BE1ECF5904B8E9DFBD358A3170;46.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 455.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 456.
  ) 
 Here is how much of TeX's memory you used:
- 20885 strings out of 493117
- 393563 string characters out of 6135432
- 483655 words of memory out of 5000000
- 23852 multiletter control sequences out of 15000+600000
- 12688 words of font info for 50 fonts, out of 8000000 for 9000
+ 20850 strings out of 493117
+ 392636 string characters out of 6135432
+ 483617 words of memory out of 5000000
+ 23819 multiletter control sequences out of 15000+600000
+ 13040 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,24n,80p,1449b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,24n,75p,1449b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1341,16 +1358,19 @@ cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
 l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
 texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2014/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (18 pages, 1072778 bytes).
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2014/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on report.pdf (17 pages, 1138697 bytes).
 PDF statistics:
- 335 PDF objects out of 1000 (max. 8388607)
- 273 compressed objects within 3 object streams
- 105 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 339 PDF objects out of 1000 (max. 8388607)
+ 274 compressed objects within 3 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

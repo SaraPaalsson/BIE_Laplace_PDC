@@ -1,0 +1,21 @@
+CrayPat/X:  Version 6.3.0 Revision 14378  09/15/15 10:48:06
+
+ Max error: 3.6523262954319090e-07 
+Timings for run on starfish
+Parameters: 
+Npanels = 20 
+NBR_R = 3000 	 NBR_T = 5000
+Ndomain_points = 15000000 
+
+ Function              Time        percentage 
+Initialize domain    : 1.083976 s  0.053956 %
+Initialize rhs       : 0.568940 s  0.028319 %
+Solve for density    : 0.405505 s  0.020184 %
+Compute solution     : 6.236870 s  0.310444 %
+Special quadrature   : 11.694684 s  0.582111 %
+Compute error        : 0.100160 s  0.004986 %
+Total                : 20.090135 s 
+
+Experiment data file written:
+/cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_omp/batchscripts/main_exe+pat+35227-1612t.xf
+Application 7493020 resources: utime ~199s, stime ~91s, Rss ~906396, inblocks ~19389445, outblocks ~23567

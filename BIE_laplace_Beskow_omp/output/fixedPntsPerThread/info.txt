@@ -1,0 +1,13 @@
+1, 32
+2, 16
+3, 8
+4, 4
+5, 2
+6, 1
+
+#define tStart 0.0
+#define NBR_R floor(3*176*sqrt(NUM_THREADS)) // Resolution in radial direction
+#define NBR_T floor(5*176*sqrt(NUM_THREADS)) // Resolution in boundary parameterisation
+#define NBR_DOMAIN_POINTS NBR_R  * NBR_T // Number of grid points in domain
+#define NBR_PANELS 20 // Number of GL-panels
+#define NBR_POINTS_PER_PANEL 16 // Number of points per GL-panel

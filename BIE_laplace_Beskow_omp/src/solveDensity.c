@@ -3,7 +3,6 @@ Calculate density mu from the boundary integral formulation for Laplace
 eq. with Dirichlet boundary condition (RHS)
 Singular integrals calcualted with limit points
 The system matrix is symmetric and positive definit.
-
 */
 
 #include <omp.h>

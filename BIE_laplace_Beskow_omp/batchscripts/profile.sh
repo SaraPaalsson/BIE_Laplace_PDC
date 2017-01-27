@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-FILENAME=../output/batch1/
+FILENAME=../output/batch_inlining2/
 
 export OMP_NUM_THREADS=32
 

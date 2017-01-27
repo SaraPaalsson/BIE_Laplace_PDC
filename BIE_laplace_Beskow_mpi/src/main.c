@@ -200,15 +200,17 @@ int main(int argc, char const *argv[])
 		
 		//Evaluate the solution pu_spec with special quadrature.
 		//time1 = MPI_Wtime();
+
 		specialquadlapl(pu_spec_proc, pu_proc, pmu, pz_proc, pzDrops, pzDropsp, pwDrops, ppanels,nbr_el_proc);	
-		time2 = MPI_Wtime()-time1;
-		time_specialQuad = &time2;
+		time3 = MPI_Wtime()-time1-time2;
+		time_specialQuad = &time3;
+		printf("time = %f\n",time3);
 
 		//Compute the error perrorvec.
 		//time1 = MPI_Wtime();
 		computeError(perrorvec_proc, pu_proc, pu_spec_proc, pu_ana_proc, pumax,nbr_el_proc);
-		time2 = MPI_Wtime()-time1;
-                time_cmptError = &time2;
+		time4 = MPI_Wtime()-time1-time2-time3;
+                time_cmptError = &time4;
 
 		MPI_Barrier(MPI_COMM_WORLD);
 	

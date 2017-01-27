@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-FILENAME=../output/weak6/
+FILENAME=../output/weak_test/
 
 pat_build -u -D trace-text-size=50 -Drtenv=PAT_RT_PERFCTR=default -f ./../api/main_exe
 

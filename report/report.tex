@@ -73,6 +73,8 @@
 
 \section*{Introduction}
 This project deals with the optimization and parallelization of solving linear equations with boundary integral equation (BIE) methods. To demonstrate the strengths and weaknesses with a BIE method, and how to make the computations for these faster, we use the example problem of solving Laplace's equation in two-dimensions on a starfish domain. Therefore, before going  into details on our existing code, performance analysis and parallelization, we start by overviewing the methods we will use. 
+\\ \\
+All computations for this report have been done on Beskow, a Cray XC40 system at the PDC Center for High Performance Computing at the KTH Royal Institute of Technology.
 
 \subsection*{Boundary Integral Equations}
 Boundary integral equations provide a way to solve linear equations to a high accuracy. By reformulating the differential equation as an integral equation over the surface of our domain, we reduce the degrees of freedom of the problem. Compared to a standard grid-based method where we discretize the whole domain, for example finite element and finite difference methods, the number of degrees is reduced by one. A simple sketch of the differences between a standard grid-based method and a BIE method can be seen in Fig. \ref{fig:disc}, where we have used squared elements for our standard grid and discretized the BIE with equidistant points along the boundary. The discretization of a starfish domain in two dimensions, which is smooth, is going to be our example domain throughout the report. 
@@ -85,7 +87,7 @@ Boundary integral equations provide a way to solve linear equations to a high ac
 	\label{fig:disc}
 \end{figure}
 \\ \\
-For completeness, we state Laplaces equation in our domain $\Omega\in\mathbb{C}$, 
+For completeness, we state Laplaces equation in our domain $\Omega\in\mathbb{C}$ with boundary $\delta\Omega$,
 \begin{align}
 	\begin{split}
 		\Delta u = 0, \; z\in\Omega, \\
@@ -116,22 +118,22 @@ k(\tau,z) = \Im\left\{ \frac{\tau^\prime}{\tau-z}\right\}.
 \end{align}
 As $z$ comes closer and closer to $\tau$, the denominator is approaching zero, and the integrand will therefore grow rapidly. This will be increasingly difficult to resolve, and simply upsampling the discretization on the boundary $\delta\Omega$ will not be sufficient. For these cases, we need to do something different and will apply a special quadrature.
 \\ \\
-A short summation of the special quadrature follows. It was originally developed by Helsing and Ojala\footnote{Helsing, J. and Ojala, R., 2008. On the evaluation of layer potentials close to their sources. {\em Journal of Computational Physics}, 227(5), pp.2899-2921.}. When it comes to solving \eqref{eq:ulapl} with special quadrature, we use the fact that the kernel \eqref{eq:kernel} is the same as in the monomials 
+A short summary of the special quadrature follows. It was originally developed by Helsing and Ojala\footnote{Helsing, J. and Ojala, R., 2008. On the evaluation of layer potentials close to their sources. {\em Journal of Computational Physics}, 227(5), pp.2899-2921.}. When it comes to solving \eqref{eq:ulapl} with special quadrature, we use the fact that the kernel \eqref{eq:kernel} is the same as in the monomials 
 \begin{align}
-    p_k(z) = \int \frac{\tau^k}{\tau-z}d\tau, \; k=0,\hdots,31.
+    p_k(z) = \int \frac{\tau^k}{\tau-z}d\tau, \; k=0,\hdots,M,
     \label{eq:pkrec}
 \end{align}
-For $p_0(z)$ we have the analytical solution 
+where $M$ is the number of discretization points on one panel. For $p_0(z)$ we have the analytical solution 
 \begin{align}
     p_0(z) = \log(1-z)-\log(-1-z).
     \label{eq:p0}  
 \end{align}
 The other $p_k$ can be obtained through a simple recursion. Thus, for a panel $P_j$ we can write
 \begin{align}
-    \int_{P_j} \mu(\tau) \Im\left\{ \frac{d\tau}{\tau-z} \right\} = \Im\left\{ \sum_{k=0}^{31} c_k \int_{P_j} \tau^k\frac{d\tau}{\tau-z} \right\} = \Im\left\{ \sum_{k=0}^{31} c_kp_k \right\},
+    \int_{P_j} \mu(\tau) \Im\left\{ \frac{d\tau}{\tau-z} \right\} = \Im\left\{ \sum_{k=0}^{M} c_k \int_{P_j} \tau^k\frac{d\tau}{\tau-z} \right\} = \Im\left\{ \sum_{k=0}^{M} c_kp_k \right\},
     \label{eq:specQ}
 \end{align}
-where $\mu_j(z) = \sum_{k=0}^{31} c_k\tau^k$ is the polynomial interpolation of $\mu$ restricted to panel $P_j$. 
+where $\mu_j(z) = \sum_{k=0}^{M} c_k\tau^k$ is the polynomial interpolation of $\mu$ restricted to panel $P_j$. 
 \\ \\
 As a demonstration for how the special quadrature works, we show in Fig. \ref{fig:normquad} how the error in $u$ behaves as we approach the boundary $\delta\Omega$. The number of panels influences the error, but as can be seen upsampling does not completely remove the problems. In comparison, in Fig. \ref{fig:specquad} we see the error after applying the special quadrature. Also for 35 panels, the errors are negligble. 
 \begin{figure}[ht]
@@ -149,7 +151,7 @@ As a demonstration for how the special quadrature works, we show in Fig. \ref{fi
     \caption{Error after application of special quadrature, for 35 panels.}
     \label{fig:specquad}
 \end{figure}
-If we zoom in and compare the level curves for the error in the black box, we see that the special quadrature removes all errors up to $\sim 10^{-15}$, see Fig. \ref{fig:levelcurves}. Here the black curves correpond to different magnitudes of error. As is observable in the right most image, the special quadrature effectively reduces the error.
+If we zoom in and compare the level curves for the error in the black box, we see that the special quadrature removes all errors up to $\sim 10^{-15}$, see Fig. \ref{fig:levelcurves}. Here the black curves correpond to different magnitudes of error. As is observable in the right image, the special quadrature effectively reduces the error.
 \begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.49\textwidth]{Graphics/contour_panels35.png}
@@ -167,7 +169,7 @@ First, in Alg. \ref{alg:solveDensity} we solve \eqref{eq:density} for the comple
 \\ \\
 The next step is to compute the solution in the domain through \eqref{eq:ulapl}. We do this by integrating our $\mu$ over the boundary $\delta\Omega$, using the same discretization as in Alg. \ref{alg:solveDensity}. This becomes one for-loop over the \textbf{domain} discretization points and one over the \textbf{boundary} discretization points (typically fewer than those on the boundary), see Alg. \ref{alg:compU}.
 \\ \\
-The final major step of the algorithm is to apply the special quadrature  to reduce the errors in $u$ close to the boundary. This algorithm is briefly described in Alg. \ref{alg:specQ}. It consists of a for-loop over all domain points $\tau_i$, and then a for-loop over all panels $P_j$ of the domain discretization. For each panel and point pair, the distance between them is computed. If the distance is less than a set threshold, further investigations are needed. We will compute an analytical and numerical value of $p_0$ \eqref{eq:p0}, which contains the same kernel as our solution integral. If these two values of $p_0$ differ by less than a constant, our integral is deemed well resolved. If not, we upsample to 32 points Gauss-Legendre quadrature on the panel, and compare $p_0$ again. Now, if the upsampled integral gives a good value of $p_0$ we assume that also our integral for $u_i$ will be well resolved for point $\tau_i$ on panel $P_j$. We therefore compute a new value for $u_i$ on $P_j$ only, and add it to $u_i$. If upsampling is not enough, we apply our special quadrature. We then need to compute all $p_k$ through a recursion, \eqref{eq:pkrec}, and then find the coefficient to interpolate this to a polynomial of degree 15. This is done through solving a Vandermonde system. We then compute our new value of $u_i$ on panel $P_j$ with the specal quadrature \eqref{eq:specQ}. 
+The final major step of the algorithm is to apply the special quadrature  to reduce the errors in $u$ close to the boundary. This algorithm is briefly described in Alg. \ref{alg:specQ}. It consists of a for-loop over all domain points $\tau_i$, and then a for-loop over all panels $P_j$ of the domain discretization. For each panel and point pair, the distance between them is computed. If the distance is less than a set threshold, further investigations are needed. We will compute an analytical and numerical value of $p_0$ \eqref{eq:p0}, which contains the same kernel as our solution integral. If these two values of $p_0$ differ by less than a constant, our integral is deemed well resolved. If not, we upsample to 32 points Gauss-Legendre quadrature on the panel, and compare $p_0$ again. Now, if the upsampled integral gives a good value of $p_0$ we assume that also our integral for $u_i$ will be well resolved for point $\tau_i$ on panel $P_j$. We therefore compute a new value for $u_i$ on $P_j$ only, and add it to $u_i$. If upsampling is not enough, we apply our special quadrature. We then need to compute all $p_k$ through a recursion, \eqref{eq:pkrec}, and then find the coefficient to interpolate this to a polynomial of degree 31. We then compute our new value of $u_i$ on panel $P_j$ with the specal quadrature \eqref{eq:specQ}. 
 \FloatBarrier
 
 \section*{Performance of Serial Code}
@@ -184,7 +186,7 @@ Firstly, we investigate how changing the number of domain points, $N_{dom}$, inf
 \end{figure}
 
 \subsubsection*{Performance Analysis}
-Next, we investigate the code with CrayPAT as we change $N_{dom}$. We start by studying a problem were we are still using a relative small amount of points in our domain, i.e. were \texttt{solveDensity}, Alg. \ref{alg:solveDensity}, dominates the cost. This problem is run for $N_{dom} = 1600$, $N_{pan}=20$. When studying the performance through CrayPAT, we see that the call to \texttt{gmres} takes most time, see Fig. \ref{fig:batch4_serial_pie}. We set that the functions being called the most times, such as \texttt{IPMultR} and \texttt{tau} e.g., are very quick, whereas the three major algorithms pin-pointed earlier indeed take the most time. We see in the right pie chart, that it is the \texttt{gmres}-call that takes up the most time. The function \texttt{IPMultR} upsamples from $16$ to $32$ Gauss-Legendre points. It is called upon by \code{specialquadlapl} when a point is considered to be to close to the boundary. 
+Next, we investigate the code with CrayPAT as we change $N_{dom}$. We start by studying a problem were we are still using a relative small amount of points in our domain, i.e. were \texttt{solveDensity}, Alg. \ref{alg:solveDensity}, dominates the cost. This problem is run for $N_{dom} = 1600$, $N_{pan}=20$. When studying the performance through CrayPAT, we see that the call to \texttt{gmres} takes most time, see Fig. \ref{fig:batch4_serial_pie}. We see that the functions being called the most times, such as \texttt{IPMultR} and \texttt{tau} e.g., are very quick, whereas the three major algorithms pin-pointed earlier indeed take the most time. We see in the right pie chart, that it is the \texttt{gmres}-call that takes up the most time. The function \texttt{IPMultR} upsamples from $16$ to $32$ Gauss-Legendre points. It is called upon by \code{specialquadlapl} when a point is considered to be to close to the boundary. 
 \begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.49\textwidth]{Graphics/craypat_serial_batch4_calls_pie.png}
@@ -259,7 +261,7 @@ Firstly, we investigate the strong scaling of our algorithm with OpenMP-parallel
     \label{fig:omp_strongtime}
 \end{figure}
 \\ \\
-For completeness, we also study the cache hit/miss ratios of our parallelized problem in Table \ref{tab:openmp_caches}. As for the larger problem with the serial code, see Table \ref{tab:batch10_serial_caches}, the ratios are good for all our functions. As before, \texttt{IPMultR} dominates the number of function calls ($85\%$), but is a small easy function called by \texttt{specialquadlapl} and does not dominate the function time ($6\%$), see Fig. \ref{fig:omp_strong_pie}. 
+For completeness, we also study the cache hit/miss ratios of our parallelized problem in Table \ref{tab:openmp_caches}. As for the larger problem with the serial code, see Table \ref{tab:batch10_serial_caches}, the ratios are good for all our functions. As before, \texttt{IPMultR} dominates the number of function calls ($85\%$), but is a small easy function called by \texttt{specialquadlapl} and does not dominate the function time ($6\%$), see Fig. \ref{fig:omp_strong_pie}. As both \code{IPMultR} and \code{vandernewton} are very small functions only called on by \code{specialquadlapl}, we performed the same test as in Table \ref{tab:openmp_caches} with inlining implementet. This means that instead of the functions being called hundreds of thousands of times, we insert their code into \code{specialquadlapl} itself. This has the benefit of reducing the number of function calls and thus the passing of information, hopefully reducing overhead. On the other hand, however, it results in a code which is harder to read and more clutered. Trying this, we can speed up \code{specialquadlapl} with approximately $1.5$ s, from original $3$ s to $1.49$ s, i.e. a reduction in computational time by $50 \%$. For larger problems, this can definitely be worth considering.
 \begin{table}[ht]
 \begin{center}
     \begin{tabular}{ c | c | c | c | c }
@@ -345,7 +347,7 @@ For completeness, we again plot the cache miss/hit ratios in Table \ref{tab:mpi_
 
 
 \subsubsection*{Weak Scaling}
-When investigating the weak scaling of the problem, Fig. \ref{fig:mpi_weaktime}, we see that \code{computeSolution} scales well and remains almost constant. We also see that \code{specialquadlapl} scales well. However, as the number of tasks increases our \code{main} gets more expensive, and thus also the total time. This is because for more processes the amount of communication needed increases, and also the waiting time. The consequence is bad scaling, in a weak sense,for the whole algorithm. As previously, we have used $4\cdot 10^5$ points per MPI-task, and $N_{panels}=20$.
+When investigating the weak scaling of the problem, Fig. \ref{fig:mpi_weaktime}, we see that \code{computeSolution} scales well and remains almost constant. We also see that \code{specialquadlapl} scales well. However, as the number of tasks increases our \code{main} gets more expensive, and thus also the total time. This is because for more processes the amount of communication needed increases, and also the waiting time. The consequence is bad scaling, in a weak sense, for the whole algorithm. This could potentially be improved by distributing the work among the slaves only, and only use the master of distribution of work and setup. As previously, we have used $4\cdot 10^5$ points per MPI-task, and $N_{panels}=20$.
 \begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{Graphics/craypat_mpi_weakscaling.png}

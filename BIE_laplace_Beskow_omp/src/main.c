@@ -109,6 +109,7 @@ int main(int argc, char const *argv[])
         printf("%-20s : %lf s  %lf %%\n","Compute solution", time_cmptSol, time_cmptSol/time_tot);
 	printf("%-20s : %lf s  %lf %%\n","Special quadrature", time_specialQuad, time_specialQuad/time_tot);
 	printf("%-20s : %lf s  %lf %%\n","Compute error", time_cmptError, time_cmptError/time_tot);
+	printf("%-20s : %lf s \n","Total", time_tot);
         printf("\n");
 
 

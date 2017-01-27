@@ -1,0 +1,584 @@
+CrayPat/X:  Version 6.3.0 Revision 14378 (xf 14041)  09/15/15 10:48:06
+
+Number of PEs (MPI ranks):    1
+                           
+Numbers of PEs per Node:      1
+                           
+Numbers of Threads per PE:   32
+                           
+Number of Cores per Socket:  16
+
+Execution start time:  Thu Jan 12 17:16:12 2017
+
+System name and speed:  beskow-login4 2301 MHz
+
+Current path to data file:
+  /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_omp/batchscripts/main_exe+pat+47906-1621t.ap2  (RTS)
+
+
+Notes for table 1:
+
+  Table option:
+    -O profile
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr -b gr,fu,th=HIDE
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the select0 for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Imbalance percentages are relative to a set of threads or PEs.
+  Other percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+  
+  The following groups were pruned due to thresholding:
+    ETC
+
+Table 1:  Profile by Function Group and Function
+
+  Time% |      Time |     Imb. |  Imb. |     Calls |Group
+        |           |     Time | Time% |           | Function
+        |           |          |       |           |  Thread=HIDE
+       
+ 100.0% | 10.503661 |       -- |    -- | 925,269.0 |Total
+|------------------------------------------------------------------
+| 100.0% | 10.499388 |       -- |    -- | 925,238.0 |USER
+||-----------------------------------------------------------------
+||  33.1% |  3.479905 |       -- |    -- |       1.0 |computeSolution
+||  29.5% |  3.095604 |       -- |    -- |       1.0 |specialquadlapl
+||  10.4% |  1.093100 |       -- |    -- |       1.0 |create_grid
+||   7.0% |  0.734825 | 0.156761 | 18.4% | 744,703.0 |IPmultR
+||   6.1% |  0.642174 | 0.176627 | 21.0% |  63,574.0 |vandernewton
+||   5.5% |  0.578263 |       -- |    -- |       1.0 |init_function
+||   4.7% |  0.490177 |       -- |    -- |       1.0 |exit
+||   1.8% |  0.192316 |       -- |    -- |       1.0 |solveDensity
+|==================================================================
+
+===================  Observations and suggestions  ===================
+
+
+MFLOPS not available on Intel Haswell:
+
+    The document that specifies performance monitoring events for Intel
+    processors does not include events that could be used to compute a
+    count of floating point operations for Haswell processors: Intel 64
+    and IA-32 Architectures Software Developer's Manual, Order Number
+    253665-050US, February 2014.
+
+
+D1 cache utilization:
+
+    All instrumented functions with significant execution time had D1
+    cache hit ratios above the desirable minimum of 75.0%.
+
+
+D1 + D2 cache utilization:
+
+    All instrumented functions with significant execution time had
+    combined D1 and D2 cache hit ratios above the desirable minimum of
+    80.0%.
+
+
+TLB utilization:
+
+    4.7% of total execution time was spent in 1 functions with fewer
+    than the desirable minimum of 200 data references per TLB miss. TLB
+    utilization might be improved by modifying the alignment or stride
+    of references to data arrays in these functions.
+
+        LS   Time%  Function
+       per           Thread=HIDE
+       TLB          
+        DM          
+ 
+      54.15    4.7%  exit
+                                
+=========================  End Observations  =========================
+
+Notes for table 2:
+
+  Table option:
+    -O load_imbalance_thread
+  Options implied by table option:
+    -d max_ti,imb_ti,imb_ti% -b th
+
+
+  Imbalance percentages are relative to a set of threads or PEs.
+
+Table 2:  Load Imbalance by Thread
+
+ Max. Time |     Imb. |  Imb. |Thread
+           |     Time | Time% |
+          
+ 10.467303 | 8.748783 | 86.3% |Total
+|---------------------------------------
+| 10.467303 |       -- |    -- |thread.0
+|  1.561907 |       -- |    -- |thread.28
+|  1.537614 |       -- |    -- |thread.27
+|  1.525314 |       -- |    -- |thread.1
+|  1.520679 |       -- |    -- |thread.31
+|  1.518082 |       -- |    -- |thread.17
+|  1.509159 |       -- |    -- |thread.19
+|  1.496937 |       -- |    -- |thread.30
+|  1.490646 |       -- |    -- |thread.5
+|  1.486153 |       -- |    -- |thread.6
+|  1.478641 |       -- |    -- |thread.7
+|  1.477591 |       -- |    -- |thread.9
+|  1.475865 |       -- |    -- |thread.25
+|  1.474942 |       -- |    -- |thread.24
+|  1.456537 |       -- |    -- |thread.11
+|  1.454456 |       -- |    -- |thread.16
+|  1.438858 |       -- |    -- |thread.3
+|  1.427626 |       -- |    -- |thread.10
+|  1.423425 |       -- |    -- |thread.15
+|  1.418692 |       -- |    -- |thread.26
+|  1.415346 |       -- |    -- |thread.22
+|  1.407033 |       -- |    -- |thread.4
+|  1.400218 |       -- |    -- |thread.13
+|  1.390733 |       -- |    -- |thread.2
+|  1.376411 |       -- |    -- |thread.29
+|  1.374114 |       -- |    -- |thread.23
+|  1.365088 |       -- |    -- |thread.14
+|  1.358586 |       -- |    -- |thread.12
+|  1.355979 |       -- |    -- |thread.18
+|  1.343866 |       -- |    -- |thread.8
+|  1.297998 |       -- |    -- |thread.20
+|  1.266847 |       -- |    -- |thread.21
+|=======================================
+
+Notes for table 3:
+
+  Table option:
+    -O profile+hwpc
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr,P -b gr,fu,th=HIDE
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the sum for the Function values.
+  The Function value for each data item is the select0 for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Imbalance percentages are relative to a set of threads or PEs.
+  Other percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+  
+  The following groups were pruned due to thresholding:
+    ETC
+
+Table 3:  Profile by Function Group and Function
+
+Group / Function / Thread=HIDE
+
+  
+==============================================================================
+  Total
+------------------------------------------------------------------------------
+  Time%                                                   100.0% 
+  Time                                                 10.503661 secs
+  Imb. Time                                                   -- secs
+  Imb. Time%                                                  -- 
+  Calls                             0.075M/sec         925,269.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                47,914,246,678 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                 1,601,103,494 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                    225,404 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                 1,113,894 
+  L1D:REPLACEMENT                                    217,730,205 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                        162,212,401 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                         57,020,641 
+  MEM_UOPS_RETIRED:ALL_LOADS                      15,456,914,940 
+  User time (approx)               12.364 secs    28,448,539,803 cycles  100.0% Time
+  CPU_CLK                            2.99GHz                     
+  TLB utilization               11,541.06 refs/miss        22.54 avg uses
+  D1 cache hit,miss ratios          98.6% hits              1.4% misses
+  D1 cache utilization (misses)     70.99 refs/miss         8.87 avg hits
+  D2 cache hit,miss ratio           51.7% hits             48.3% misses
+  D1+D2 cache hit,miss ratio        99.3% hits              0.7% misses
+  D1+D2 cache utilization          146.94 refs/miss        18.37 avg hits
+  D2 to D1 bandwidth              800.794MiB/sec  10,381,593,664 bytes
+  Average Time per Call                                 0.000011 secs
+  CrayPat Overhead : Time           18.1%                        
+==============================================================================
+  USER
+------------------------------------------------------------------------------
+  Time%                                                   100.0% 
+  Time                                                 10.499388 secs
+  Imb. Time                                                   -- secs
+  Imb. Time%                                                  -- 
+  Calls                             0.075M/sec         925,238.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                47,913,770,071 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                 1,601,087,775 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                    225,404 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                 1,113,082 
+  L1D:REPLACEMENT                                    217,730,205 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                        162,212,401 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                         57,013,743 
+  MEM_UOPS_RETIRED:ALL_LOADS                      15,456,878,225 
+  User time (approx)               12.359 secs    28,438,524,752 cycles  100.0% Time
+  CPU_CLK                            2.99GHz                     
+  TLB utilization               11,548.03 refs/miss        22.55 avg uses
+  D1 cache hit,miss ratios          98.6% hits              1.4% misses
+  D1 cache utilization (misses)     70.99 refs/miss         8.87 avg hits
+  D2 cache hit,miss ratio           51.7% hits             48.3% misses
+  D1+D2 cache hit,miss ratio        99.3% hits              0.7% misses
+  D1+D2 cache utilization          146.93 refs/miss        18.37 avg hits
+  D2 to D1 bandwidth              801.076MiB/sec  10,381,593,664 bytes
+  Average Time per Call                                 0.000011 secs
+  CrayPat Overhead : Time           18.1%                        
+==============================================================================
+  USER / computeSolution
+------------------------------------------------------------------------------
+  Time%                                                    33.1% 
+  Time                                                  3.479905 secs
+  Imb. Time                                                   -- secs
+  Imb. Time%                                                  -- 
+  Calls                             0.287 /sec               1.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                 9,474,646,705 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                   338,703,195 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                     90,994 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                     5,942 
+  L1D:REPLACEMENT                                     15,193,273 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                          4,741,903 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                            100,658 
+  MEM_UOPS_RETIRED:ALL_LOADS                       2,654,511,742 
+  User time (approx)                3.480 secs     8,007,247,901 cycles  100.0% Time
+  CPU_CLK                            2.80GHz                     
+  TLB utilization               27,384.17 refs/miss        53.48 avg uses
+  D1 cache hit,miss ratios          99.4% hits              0.6% misses
+  D1 cache utilization (misses)    174.72 refs/miss        21.84 avg hits
+  D2 cache hit,miss ratio           69.5% hits             30.5% misses
+  D1+D2 cache hit,miss ratio        99.8% hits              0.2% misses
+  D1+D2 cache utilization          571.94 refs/miss        71.49 avg hits
+  D2 to D1 bandwidth               83.170MiB/sec     303,481,792 bytes
+  Average Time per Call                                 3.479905 secs
+  CrayPat Overhead : Time            0.0%                        
+==============================================================================
+  USER / specialquadlapl
+------------------------------------------------------------------------------
+  Time%                                                    29.5% 
+  Time                                                  3.095604 secs
+  Imb. Time                                                   -- secs
+  Imb. Time%                                                  -- 
+  Calls                             0.321 /sec               1.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                14,830,030,946 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                   573,894,715 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                     46,898 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                   170,275 
+  L1D:REPLACEMENT                                     82,517,815 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                         54,947,770 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                         24,919,580 
+  MEM_UOPS_RETIRED:ALL_LOADS                       4,691,570,261 
+  User time (approx)                3.111 secs     7,159,266,054 cycles  100.0% Time
+  CPU_CLK                            2.58GHz                     
+  TLB utilization               21,602.92 refs/miss        42.19 avg uses
+  D1 cache hit,miss ratios          98.2% hits              1.8% misses
+  D1 cache utilization (misses)     56.86 refs/miss         7.11 avg hits
+  D2 cache hit,miss ratio           63.6% hits             36.4% misses
+  D1+D2 cache hit,miss ratio        99.4% hits              0.6% misses
+  D1+D2 cache utilization          156.24 refs/miss        19.53 avg hits
+  D2 to D1 bandwidth            1,077.899MiB/sec   3,516,657,280 bytes
+  Average Time per Call                                 3.095604 secs
+  CrayPat Overhead : Time            0.0%                        
+==============================================================================
+  USER / create_grid
+------------------------------------------------------------------------------
+  Time%                                                     10.4% 
+  Time                                                   1.093100 secs
+  Imb. Time                                                    -- secs
+  Imb. Time%                                                   -- 
+  Calls                              0.915 /sec               1.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                  3,574,457,004 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                     99,755,979 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                         153 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                    227,272 
+  L1D:REPLACEMENT                                         128,624 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                              41,215 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                              36,103 
+  MEM_UOPS_RETIRED:ALL_LOADS                        1,857,519,955 
+  User time (approx)                 1.093 secs     2,515,240,940 cycles  100.0% Time
+  CPU_CLK                             3.58GHz                     
+  TLB utilization                 8,167.62 refs/miss        15.95 avg uses
+  D1 cache hit,miss ratios          100.0% hits              0.0% misses
+  D1 cache utilization (misses)  14,441.47 refs/miss        1,805 avg hits
+  D2 cache hit,miss ratio            96.0% hits              4.0% misses
+  D1+D2 cache hit,miss ratio        100.0% hits              0.0% misses
+  D1+D2 cache utilization       363,364.62 refs/miss       45,421 avg hits
+  D2 to D1 bandwidth                 2.301MiB/sec       2,637,760 bytes
+  Average Time per Call                                  1.093100 secs
+  CrayPat Overhead : Time             0.0%                        
+==============================================================================
+  USER / IPmultR
+------------------------------------------------------------------------------
+  Time%                                                      7.0% 
+  Time                                                   0.734825 secs
+  Imb. Time                                              0.156761 secs
+  Imb. Time%                                                18.4% 
+  Calls                              0.331M/sec         744,703.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                 12,135,733,922 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                    339,139,955 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                      37,794 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                    115,413 
+  L1D:REPLACEMENT                                      51,077,227 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                          40,180,141 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                          13,461,795 
+  MEM_UOPS_RETIRED:ALL_LOADS                        4,016,433,647 
+  User time (approx)                 2.253 secs     5,184,102,269 cycles  100.0% Time
+  CPU_CLK                             3.58GHz                     
+  TLB utilization                26,215.73 refs/miss        51.20 avg uses
+  D1 cache hit,miss ratios           98.7% hits              1.3% misses
+  D1 cache utilization (misses)      78.63 refs/miss         9.83 avg hits
+  D2 cache hit,miss ratio            47.7% hits             52.3% misses
+  D1+D2 cache hit,miss ratio         99.3% hits              0.7% misses
+  D1+D2 cache utilization           150.32 refs/miss        18.79 avg hits
+  D2 to D1 bandwidth             1,088.515MiB/sec   2,571,529,024 bytes
+  Average Time per Call                                  0.000001 secs
+  CrayPat Overhead : Time           207.7%                        
+==============================================================================
+  USER / vandernewton
+------------------------------------------------------------------------------
+  Time%                                                      6.1% 
+  Time                                                   0.642174 secs
+  Imb. Time                                              0.176627 secs
+  Imb. Time%                                                21.0% 
+  Calls                              0.083M/sec          63,574.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                  4,553,452,032 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                    150,022,423 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                      15,232 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                     27,891 
+  L1D:REPLACEMENT                                      17,356,555 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                          12,900,634 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                           4,004,206 
+  MEM_UOPS_RETIRED:ALL_LOADS                        1,303,292,785 
+  User time (approx)                 0.767 secs     1,764,515,218 cycles  100.0% Time
+  CPU_CLK                             3.04GHz                     
+  TLB utilization                30,222.68 refs/miss        59.03 avg uses
+  D1 cache hit,miss ratios           98.7% hits              1.3% misses
+  D1 cache utilization (misses)      75.09 refs/miss         9.39 avg hits
+  D2 cache hit,miss ratio            48.7% hits             51.3% misses
+  D1+D2 cache hit,miss ratio         99.3% hits              0.7% misses
+  D1+D2 cache utilization           146.50 refs/miss        18.31 avg hits
+  D2 to D1 bandwidth             1,026.792MiB/sec     825,640,576 bytes
+  Average Time per Call                                  0.000010 secs
+  CrayPat Overhead : Time            20.3%                        
+==============================================================================
+  USER / init_function
+------------------------------------------------------------------------------
+  Time%                                                      5.5% 
+  Time                                                   0.578263 secs
+  Imb. Time                                                    -- secs
+  Imb. Time%                                                   -- 
+  Calls                              1.729 /sec               1.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                  1,884,444,332 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                     53,009,130 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                         197 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                     92,566 
+  L1D:REPLACEMENT                                       3,712,254 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                             141,711 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                              74,480 
+  MEM_UOPS_RETIRED:ALL_LOADS                          337,310,865 
+  User time (approx)                 0.578 secs     1,330,599,765 cycles  100.0% Time
+  CPU_CLK                             3.55GHz                     
+  TLB utilization                 3,636.27 refs/miss         7.10 avg uses
+  D1 cache hit,miss ratios           98.9% hits              1.1% misses
+  D1 cache utilization (misses)      90.86 refs/miss        11.36 avg hits
+  D2 cache hit,miss ratio            98.2% hits              1.8% misses
+  D1+D2 cache hit,miss ratio        100.0% hits              0.0% misses
+  D1+D2 cache utilization         5,017.19 refs/miss       627.15 avg hits
+  D2 to D1 bandwidth                14.957MiB/sec       9,069,504 bytes
+  Average Time per Call                                  0.578263 secs
+  CrayPat Overhead : Time             0.0%                        
+==============================================================================
+  USER / exit
+------------------------------------------------------------------------------
+  Time%                                                      4.7% 
+  Time                                                   0.490177 secs
+  Imb. Time                                                    -- secs
+  Imb. Time%                                                   -- 
+  Calls                              2.040 /sec               1.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                        439,926 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                         15,568 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                           0 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                        428 
+  L1D:REPLACEMENT                                               0 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                                   0 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                                 388 
+  MEM_UOPS_RETIRED:ALL_LOADS                               23,175 
+  User time (approx)                 0.490 secs     1,127,910,351 cycles  100.0% Time
+  CPU_CLK                             2.83GHz                     
+  TLB utilization                    54.15 refs/miss         0.11 avg uses
+  D1 cache hit,miss ratios          100.0% hits              0.0% misses
+  D1 cache utilization (misses)         -- refs/miss           -- avg hits
+  D2 cache hit,miss ratio               -- hits                -- misses
+  D1+D2 cache hit,miss ratio        100.0% hits              0.0% misses
+  D1+D2 cache utilization               -- refs/miss           -- avg hits
+  D2 to D1 bandwidth                                            0 bytes
+  Average Time per Call                                  0.490177 secs
+  CrayPat Overhead : Time             0.0%                        
+==============================================================================
+  USER / solveDensity
+------------------------------------------------------------------------------
+  Time%                                                      1.8% 
+  Time                                                   0.192316 secs
+  Imb. Time                                                    -- secs
+  Imb. Time%                                                   -- 
+  Calls                              5.204 /sec               1.0 calls
+  CPU_CLK_THREAD_UNHALTED:THREAD_P                    501,482,599 
+  CPU_CLK_THREAD_UNHALTED:REF_XCLK                     11,204,172 
+  DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK                         105 
+  DTLB_STORE_MISSES:MISS_CAUSES_A_WALK                     11,175 
+  L1D:REPLACEMENT                                       1,704,059 
+  L2_RQSTS:ALL_DEMAND_DATA_RD                           1,355,453 
+  L2_RQSTS:DEMAND_DATA_RD_HIT                             927,627 
+  MEM_UOPS_RETIRED:ALL_LOADS                          196,133,249 
+  User time (approx)                 0.192 secs       442,148,333 cycles  100.0% Time
+  CPU_CLK                             4.48GHz                     
+  TLB utilization                17,387.70 refs/miss        33.96 avg uses
+  D1 cache hit,miss ratios           99.1% hits              0.9% misses
+  D1 cache utilization (misses)     115.10 refs/miss        14.39 avg hits
+  D2 cache hit,miss ratio            74.9% hits             25.1% misses
+  D1+D2 cache hit,miss ratio         99.8% hits              0.2% misses
+  D1+D2 cache utilization           458.44 refs/miss        57.31 avg hits
+  D2 to D1 bandwidth               430.540MiB/sec      86,748,992 bytes
+  Average Time per Call                                  0.192316 secs
+  CrayPat Overhead : Time             0.0%                        
+==============================================================================
+
+Notes for table 4:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b th
+
+  The Total value for Process HiMem (MBytes), Process Time is the select0 for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  The value shown for Process HiMem is calculated from information in
+  the /proc/self/numa_maps files captured near the end of the program. 
+  It is the total size of all pages, including huge pages, that were
+  actually mapped into physical memory from both private and shared
+  memory segments.
+
+Table 4:  Wall Clock Time, Memory High Water Mark
+
+   Process |  Process |Thread
+      Time |    HiMem |
+           | (MBytes) |
+          
+ 12.429946 |   235.46 |Total
+|------------------------------
+| 12.429946 |   235.46 |thread.0
+|==============================
+
+========================  Additional details  ========================
+
+Experiment:  trace
+
+Original path to data file:
+  /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_omp/batchscripts/main_exe+pat+47906-1621t.xf  (RTS)
+
+Original program:
+  /cfs/klemming/nobackup/f/ffry/hpc_summerschool2016/BIE_laplace_Beskow_omp/batchscripts/./../api/main_exe
+
+Instrumented with:
+  pat_build -u -D trace-text-size=50 -Drtenv=PAT_RT_PERFCTR=default -f \
+    ./../api/main_exe
+
+Instrumented program:  ./main_exe+pat
+
+Program invocation:  ./main_exe+pat
+
+Exit Status:  0 for 1 PE
+
+Intel haswell CPU  Family:  6  Model: 63  Stepping:  2
+
+Thread start functions:
+     1 thread:  main
+    31 threads:  gomp_thread_start
+
+Memory pagesize:  4 KiB
+
+Memory hugepagesize:  0 B
+
+Programming environment:  GNU
+
+Runtime environment variables:
+  ATP_HOME=/opt/cray/atp/1.7.5
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.7.5/bin/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.7.5/lib/ 
+  CRAYOS_VERSION=5
+  CRAYPE_VERSION=2.2.1
+  CRAY_LIBSCI_VERSION=13.0.1
+  GCC_VERSION=4.9.1
+  GNU_VERSION=4.9.1
+  LIBSCI_VERSION=13.0.1
+  MODULE_VERSION=3.2.6.7
+  MODULE_VERSION_STACK=3.2.6.7
+  MPICH_ABORT_ON_ERROR=1
+  MPICH_DIR=/opt/cray/mpt/7.0.4/gni/mpich2-gnu/49
+  OMP_NUM_THREADS=32
+  PATH=/opt/cray/perftools/6.3.0/bin:/opt/cray/papi/5.4.1.2/bin:/opt/cray/rca/1.0.0-2.0502.57212.2.56.ari/bin:/pdc/vol/cmake/3.7.1/bin:/opt/cray/atp/1.7.5/bin:/opt/cray/pmi/5.0.5-1.0000.10300.134.8.ari/bin:/opt/cray/mpt/7.0.4/gni/bin:/opt/gcc/4.9.1/bin:/opt/cray/craype/2.2.1/bin:/pdc/vol/slurm/utils/0.0/bin:/opt/pdc.kth.se/heimdal/1.5.2/bin:/opt/pdc.kth.se/heimdal/1.5.2/sbin:/opt/pdc.kth.se/openafs/1.6.17-3.0.101-0.35.1_1.0502.8640-cray_ari_s/bin:/opt/pdc.kth.se/openafs/1.6.17-3.0.101-0.35.1_1.0502.8640-cray_ari_s/sbin:/opt/pdc.kth.se/openssh/5.3p1-with-pam-gsskex-20100124/bin:/opt/slurm/14.11.9/bin:/opt/cray/llm/default/bin:/opt/cray/llm/default/etc:/opt/cray/xpmem/0.1-2.0502.57015.1.15.ari/bin:/opt/cray/ugni/6.0-1.0502.10245.9.9.ari/bin:/opt/cray/udreg/2.3.2-1.0502.9889.2.20.ari/bin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.35.1_1.0502.8640.15.1-1.0502.18911.12.4/sbin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.35.1_1.0502.8640.15.1-1.0502.18911.12.4/bin:/opt/cray/alps/5.2.3-2.0502.9295.14.14.ari/sbin:/opt/cray/alps/5.2.3-2.0502.9295.14.14.ari/bin:/opt/cray/sdb/1.0-1.0502.58450.3.27.ari/bin:/opt/cray/nodestat/2.2-1.0502.58998.2.7.ari/bin:/opt/modules/3.2.6.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/usr/lib/mit/bin:/usr/lib/mit/sbin:/usr/lib/qt3/bin:/opt/cray/bin
+  PAT_BUILD_PAPI_BASEDIR=/opt/cray/papi/5.4.1.2
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+  PAT_RT_PERFCTR=default
+  PERFTOOLS_VERSION=6.3.0
+  XTOS_VERSION=5.2.56
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/perftools/6.3.0
+    PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+
+Number of MPI control variables collected:  0
+
+  (To see the list, specify: -s mpi_cvar=show)
+
+Report command line options:  <none>
+
+Operating system:
+  Linux 3.0.101-0.35.1_1.0502.8640-cray_ari_c #1 SMP Sun Oct 23 03:14:47 UTC 2016
+
+Hardware performance counter events:
+   CPU_CLK_THREAD_UNHALTED:THREAD_P      Count core clock cycles whenever the clock signal on the specificcore is running (not halted):Cycles when thread is not halted
+   CPU_CLK_THREAD_UNHALTED:REF_XCLK      Count core clock cycles whenever the clock signal on the specificcore is running (not halted):Cases when the core is unhalted at 100Mhz
+   DTLB_LOAD_MISSES:MISS_CAUSES_A_WALK   Data TLB load misses:Misses in all DTLB levels that cause page walks
+   DTLB_STORE_MISSES:MISS_CAUSES_A_WALK  Data TLB store misses:Misses in all DTLB levels that cause page walks
+   L1D:REPLACEMENT                       L1D cache:L1D Data line replacements
+   L2_RQSTS:ALL_DEMAND_DATA_RD           L2 requests:Any data read request to L2 cache
+   L2_RQSTS:DEMAND_DATA_RD_HIT           L2 requests:Demand Data Read requests that hit L2 cache
+   MEM_UOPS_RETIRED:ALL_LOADS            Memory uops retired (Precise Event):All load uops retired
+   CYCLES_RTC                            User Cycles (approx, from rtc)
+
+  This set of HWPC events requires multiplexing, which reduces
+  the accuracy of the data collected. If the best possible
+  accuracy is needed, you should rerun to collect data for
+  smaller sets of events, that do not require multiplexing.
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    Time  2.050  microsecs
+
+Number of traced functions:  385
+
+  (To see the list, specify:  -s traced_functions=show)
+

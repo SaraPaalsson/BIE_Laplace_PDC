@@ -2,8 +2,8 @@
 #define BIELAPLACE_H_INCLUDED
 
 #define tStart 0.0
-#define NBR_R 1000 // Resolution in radial direction
-#define NBR_T 1000 // Resolution in boundary parameterisation
+#define NBR_R 3000 // Resolution in radial direction
+#define NBR_T 5000 // Resolution in boundary parameterisation
 #define NBR_DOMAIN_POINTS NBR_R  * NBR_T // Number of grid points in domain
 #define NBR_PANELS 30 // Number of GL-panels
 #define NBR_POINTS_PER_PANEL 16 // Number of points per GL-panel

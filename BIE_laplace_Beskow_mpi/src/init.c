@@ -31,7 +31,7 @@ void create_grid(double complex * pz){
     int i,j;
     double t,r;
 
-
+/*
 for(i = 0; i < NBR_R; i++) {
     r = i * 0.999 / (NBR_R - 1);
     for (j = 0; j < NBR_T; j++)
@@ -40,8 +40,21 @@ for(i = 0; i < NBR_R; i++) {
            pz[i * NBR_T + j] = r * (1.0 + 0.3 *  ccos(5.0 * (t + tStart))) * cexp(I * (t + tStart));
       }
   }
+*/
+
+for (j=0; j<NBR_T; j++) {
+	t = 2.0 * M_PI * j /(NBR_T - 1);
+	for (i=0; i<NBR_R; i++) {
+		r = i * 0.999 / (NBR_R - 1);
+		pz[i * NBR_T + j] = r * (1.0 + 0.3 *  ccos(5.0 * (t + tStart))) * cexp(I * (t + tStart));
+	}
 
 }
+
+
+}
+
+
 
 
 void tau(double complex * ptau, double * t, int N)

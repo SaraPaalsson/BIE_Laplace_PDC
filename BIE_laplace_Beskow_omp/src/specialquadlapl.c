@@ -185,6 +185,10 @@ void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double co
     int k, j;
     int furthercheck;
 
+// For IPMULTR
+    int ip_i,ip_j,ip_ptr;
+    double complex ip_t1,ip_t2;
+
     double tmpT[16], tmpb[16], tW32[32], tW[32];
     double oldsum, test, plen, newsum, sign;
 
@@ -232,7 +236,21 @@ void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double co
 		tmpT[j] = creal(nzpan[j]);
 		tmpb[j] = cimag(nzpan[j]);
 	      }
-	      vandernewtonT(tmpT,tmpb,16);
+	      //vandernewtonT(tmpT,tmpb,16);
+	      
+	     //inlining vandernewtonT, ip_i = k
+  	     for (ip_i = 0; ip_i < 15; ip_i++) {
+    		for (ip_j = 15; ip_j >= ip_i + 1; ip_j--) {
+      			tmpb[ip_j] = (tmpb[ip_j] - tmpb[ip_j - 1]) / (tmpT[ip_j] - tmpT[ip_j - ip_i - 1]);
+    		}
+  	     }
+  	     for (ip_i = 15; ip_i >= 0; ip_i--) {
+    		for (ip_j = ip_i; ip_j< 15; ip_j++) {
+      			tmpb[ip_j] -= tmpT[ip_i] * tmpb[ip_j + 1];
+    		}		
+  	    }
+
+
 	      test = tmpb[15];
 	      for (j = 14; j >= 0; j--) {
 		test = test * creal(nz) + tmpb[j];
@@ -261,8 +279,26 @@ void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double co
 		tmpb[j] = cimag(nzpan[j]);
 	      }
     					
-	      vandernewtonT(tmpT,tmpb,16);
-	      test = tmpb[15];
+	   //vandernewtonT(tmpT,tmpb,16);
+	      
+	     //inlining vandernewtonT, ip_i = k
+  	     for (ip_i = 0; ip_i < 15; ip_i++) {
+    		for (ip_j = 15; ip_j >= ip_i + 1; ip_j--) {
+      			tmpb[ip_j] = (tmpb[ip_j] - tmpb[ip_j - 1]) / (tmpT[ip_j] - tmpT[ip_j - ip_i - 1]);
+    		}
+  	     }
+  	     for (ip_i = 15; ip_i >= 0; ip_i--) {
+    		for (ip_j = ip_i; ip_j< 15; ip_j++) {
+      			tmpb[ip_j] -= tmpT[ip_i] * tmpb[ip_j + 1];
+    		}		
+  	    }
+
+
+
+
+
+
+ test = tmpb[15];
     					
 	      for ( j =14; j >= 0; j--) {
 		test = test * creal(nz) + tmpb[j];
@@ -296,10 +332,49 @@ void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double co
 	  //If not, we first attempt 32-point quadrature.
 	  //Interpolate boundary and density to 32 point Gauss-Legendre points.
 
-	  IPmultR(tf,tf32);
-	  IPmultR(tz,tz32);
-	  IPmultR(tzp,tzp32);
+	  //IPmultR(tf,tf32);
+	  //IPmultR(tz,tz32);
+	  //IPmultR(tzp,tzp32);
 
+	// IPMULTR tf->tf32
+	for(ip_i = 0; ip_i < 16; ip_i++) {
+    		ip_t1 = 0;
+    		ip_t2 = 0;
+    		ip_ptr = ip_i;
+    		for(ip_j = 0; ip_j < 8; ip_j++) {
+      			ip_t1 += IP1[ip_ptr] * (tf[ip_j] + tf[15 - ip_j]);
+      			ip_t2 += IP2[ip_ptr] * (tf[ip_j] - tf[15 - ip_j]);
+      			ip_ptr += 16;
+    		}
+           	tf32[ip_i] = ip_t1 + ip_t2;
+    		tf32[31-ip_i] = ip_t1 - ip_t2;
+  	  }
+	// IPMULTR tz -> tz32
+	for(ip_i = 0; ip_i < 16; ip_i++) {
+    		ip_t1 = 0;
+    		ip_t2 = 0;
+    		ip_ptr = ip_i;
+    		for(ip_j = 0; ip_j < 8; ip_j++) {
+      			ip_t1 += IP1[ip_ptr] * (tz[ip_j] + tz[15 - ip_j]);
+      			ip_t2 += IP2[ip_ptr] * (tz[ip_j] - tz[15 - ip_j]);
+      			ip_ptr += 16;
+    		}
+           	tz32[ip_i] = ip_t1 + ip_t2;
+    		tz32[31-ip_i] = ip_t1 - ip_t2;
+  	  }
+	//IPMULTR tzp->tzp32
+	for(ip_i = 0; ip_i < 16; ip_i++) {
+    		ip_t1 = 0;
+    		ip_t2 = 0;
+    		ip_ptr = ip_i;
+    		for(ip_j = 0; ip_j < 8; ip_j++) {
+      			ip_t1 += IP1[ip_ptr] * (tzp[ip_j] + tzp[15 - ip_j]);
+      			ip_t2 += IP2[ip_ptr] * (tzp[ip_j] - tzp[15 - ip_j]);
+      			ip_ptr += 16;
+    		}
+           	tzp32[ip_i] = ip_t1 + ip_t2;
+    		tzp32[31-ip_i] = ip_t1 - ip_t2;
+  	  }
 
 	  plen = tW[0] / W16[0];
 	  o32sum = 0;
@@ -323,8 +398,22 @@ void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double co
 	    //Straight up 32 point quadrature doesn't suffice.
 	    //We use interpolatory quadrature instead.
 
-	    IPmultR(nzpan,nzpan32);
+	    //IPmultR(nzpan,nzpan32);
 	    sign = -1;
+	//IPMULTR nzpan->nzpan32
+	    for(ip_i = 0; ip_i < 16; ip_i++) {
+    		ip_t1 = 0;
+    		ip_t2 = 0;
+    		ip_ptr = ip_i;
+    		for(ip_j = 0; ip_j < 8; ip_j++) {
+      			ip_t1 += IP1[ip_ptr] * (nzpan[ip_j] + nzpan[15 - ip_j]);
+      			ip_t2 += IP2[ip_ptr] * (nzpan[ip_j] - nzpan[15 - ip_j]);
+      			ip_ptr += 16;
+    		}
+           	nzpan32[ip_i] = ip_t1 + ip_t2;
+    		nzpan32[31-ip_i] = ip_t1 - ip_t2;
+  	  }
+
 	    //Compute the analytic values of the integral of
 	    //1/(tau-z) multiplied by monomials.
 	    for (j = 1; j < 33; j++) {
@@ -333,7 +422,25 @@ void specialquadlapl(double *u_specq, double *u_standardq, double *mu, double co
 	    }
                     
 	    //Solve the vandermonde systems to get the quadrature 	weights.
-	    vandernewton(nzpan32,p32,32);
+	    //vandernewton(nzpan32,p32,32);v
+	
+
+
+
+ 	// Inlining - vandernewton for nzpan32,p32
+   	    for (ip_i = 1; ip_i < 32; ip_i++) {
+    		for (ip_j = 31; ip_j >= ip_i; ip_j--) {
+      			p32[ip_j] -= nzpan32[ip_i - 1] * p32[ip_j - 1];
+    		} 
+  	    }
+	    for (ip_i = 31; ip_i >= 1; ip_i--) {
+    		for (ip_j = ip_i; ip_j < 32; ip_j++) {
+      			p32[ip_j] = p32[ip_j] / (nzpan32[ip_j] - nzpan32[ip_j - ip_i]);
+      			p32[ip_j-1] -= p32[ip_j];
+    		}
+  	    }		
+
+
 
 	    //Compute the correct value of the stokeslet
 	    //integral and subtract the old, inaccurate value.
